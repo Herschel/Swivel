@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<application xmlns="http://ns.adobe.com/air/application/3.5">
+	
+	<id>com.newgrounds.swivel.Swivel</id>
+	<versionNumber>1.12</versionNumber>
+	<filename>Swivel</filename>
+	
+	<name>Swivel</name>
+	<description>SWF-to-video converter</description>
+	<copyright>2013 Newgrounds.com, Inc.</copyright>
+	<supportedProfiles>extendedDesktop desktop</supportedProfiles>
+	<icon>
+		<image16x16>assets/icons/SWV_PNG-16.png</image16x16>
+		<image32x32>assets/icons/SWV_PNG-32.png</image32x32>
+		<image128x128>assets/icons/SWV_PNG-128.png</image128x128>
+		<image512x512>assets/icons/SWV_PNG-512.png</image512x512>
+	</icon>
+	<initialWindow>
+		<title>Swivel</title>
+		<content>bin/Swivel.swf</content>
+		<systemChrome>none</systemChrome>
+		<transparent>true</transparent>
+		<visible>true</visible>
+		<minimizable>true</minimizable>
+		<maximizable>false</maximizable>
+		<resizable>false</resizable>
+	</initialWindow>
+	<ffmpegPath>ffmpeg/win64</ffmpegPath>
+</application>

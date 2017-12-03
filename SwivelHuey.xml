@@ -1,0 +1,821 @@
+<application>
+	<assets>
+		<asset name="shadow" source="assets/SHADOW.png"/>
+		<asset name="bg01" source="assets/BG-01.png"/>
+		<asset name="bgConverting" source="assets/BG-02.png"/>
+		<asset name="killBg" source="assets/KILL.png"/>
+		<asset name="ngUpsell" source="assets/NEWGROUNDS.png"/>
+
+		<asset name="aboutBox" source="assets/infoPOD.png"/>
+		<asset name="aboutBoxLights" source="assets/infoPOD-ON.png"/>
+		
+		<asset name="btnSourceOver" source="assets/SOURCE-OVER.jpg"/>
+		<asset name="btnSourceOn" source="assets/SOURCE-ON.jpg"/>
+
+		<asset name="btnVideoOver" source="assets/VIDEO-OVER.jpg"/>
+		<asset name="btnVideoOn" source="assets/VIDEO-ON.jpg"/>
+
+		<asset name="btnAudioOver" source="assets/AUDIO-OVER.jpg"/>
+		<asset name="btnAudioOn" source="assets/AUDIO-ON.jpg"/>
+
+		<asset name="btnOverlayOver" source="assets/OVERLAY-OVER.jpg"/>
+		<asset name="btnOverlayOn" source="assets/OVERLAY-ON.jpg"/>
+
+		<asset name="btnInfoOver" source="assets/INFO-OVER.jpg"/>
+		<asset name="btnInfoOn" source="assets/INFO-INFO.jpg"/>
+
+		<asset name="btnHelpOver" source="assets/HELP-OVER.jpg"/>
+		<asset name="btnHelpOn" source="assets/HELP-ON.jpg"/>
+
+		<asset name="tabSource" source="assets/barTOGGLE-01.png"/>
+		<asset name="tabVideo" source="assets/barTOGGLE-02.png"/>
+		<asset name="tabAudio" source="assets/barTOGGLE-03.png"/>
+		<asset name="tabOverlay" source="assets/barTOGGLE-04.png"/>
+
+		<asset name="dummybar" source="assets/DUMMYBAR.png"/>
+		
+		<asset name="btnCloseOver" source="assets/CLOSE-OVER.png"/>
+		<asset name="btnCloseDown" source="assets/CLOSE-DOWN.png"/>
+		
+		<asset name="btnMinOver" source="assets/MIN-OVER.png"/>
+		<asset name="btnMinDown" source="assets/MIN-DOWN.png"/>
+		
+		<asset name="btnAddUp" source="assets/ADD.png"/>
+		<asset name="btnAddOver" source="assets/ADD-OVER.png"/>
+		<asset name="btnAddDown" source="assets/ADD-DOWN.png"/>
+
+		<asset name="btnRemoveUp" source="assets/REMOVE.png"/>
+		<asset name="btnRemoveOver" source="assets/REMOVE-OVER.png"/>
+		<asset name="btnRemoveDown" source="assets/REMOVE-DOWN.png"/>
+
+		<asset name="btnConvertOver" source="assets/CONVERT-OVER.jpg"/>
+		<asset name="btnConvertOn" source="assets/CONVERT-ON.jpg"/>
+
+		<asset name="btnLockUp" source="assets/LOCKOPEN.png"/>
+		<asset name="btnLockOver" source="assets/LOCKOPEN-OVER.png"/>
+		<asset name="btnLockSelected" source="assets/LOCKSHUT.png"/>
+		<asset name="btnLockSelectedOver" source="assets/LOCKSHUT-OVER.png"/>
+
+		<asset name="btnCheckUp" source="assets/CHECK-OFF.png"/>
+		<asset name="btnCheckOver" source="assets/CHECK-OVER.png"/>
+		<asset name="btnCheckDown" source="assets/CHECK-DOWN.png"/>
+		<asset name="btnCheckSelected" source="assets/CHECK-ON.png"/>
+		
+		<asset name="btnRadioUp" source="assets/RADIO-OFF.png"/>
+		<asset name="btnRadioOver" source="assets/RADIO-OVER.png"/>
+		<asset name="btnRadioDown" source="assets/RADIO-DOWN.png"/>
+		<asset name="btnRadioSelected" source="assets/RADIO-ON.png"/>
+
+		<asset name="btnBrowseUp" source="assets/BROWSE.png"/>
+		<asset name="btnBrowseOver" source="assets/BROWSE-OVER.png"/>
+		<asset name="btnBrowseDown" source="assets/BROWSE-DOWN.png"/>
+
+		<asset name="listBoxBigBG" source="assets/FIELD-BIG.png"/>
+		
+		<asset name="btnCancelUp" source="assets/CANCEL.jpg"/>
+		<asset name="btnCancelDown" source="assets/CANCEL-DOWN.jpg"/>
+		<asset name="btnCancelOver" source="assets/CANEL-OVER.jpg"/>
+		
+		<asset name="sliderTrack" source="assets/SLIDER-BG.png"/>
+		<asset name="btnSliderNubUp" source="assets/SLIDERGRIP.png"/>
+		<asset name="btnSliderNubOver" source="assets/SLIDERGRIP-OVER.png"/>
+		
+		<asset name="btnIncUp" source="assets/aINC.png"/>
+		<asset name="btnIncDown" source="assets/aINC-DOWN.png"/>
+		<asset name="btnIncOver" source="assets/aINC-OVER.png"/>
+		
+		<asset name="btnDecUp" source="assets/aDEC.png"/>
+		<asset name="btnDecDown" source="assets/aDEC-DOWN.png"/>
+		<asset name="btnDecOver" source="assets/aDEC-OVER.png"/>
+		
+		<asset name="textFieldSmall" source="assets/FIELD-SM.png"/>
+		<asset name="textFieldBig" source="assets/FIELD.png"/>
+		
+		<asset name="txtComplete" source="assets/txtSUCCESS.png"/>
+		
+		<asset name="btnBackUp" source="assets/BACK.jpg"/>
+		<asset name="btnBackDown" source="assets/BACK-DOWN.jpg"/>
+		<asset name="btnBackOver" source="assets/BACK-OVER.jpg"/>
+		
+		<asset name="progressBar" source="assets/PROGRESS.jpg"/>
+		
+		<asset name="aboutBox" source="assets/infoPOD.png"/>
+		<asset name="btnAlignUp" source="assets/ALIGN-OFF.png"/>
+		<asset name="btnAlignOver" source="assets/ALIGN-OVER.png"/>
+		<asset name="btnAlignDown" source="assets/ALIGN-DOWN.png"/>
+		<asset name="btnAlignSelected" source="assets/ALIGN-ON.png"/>
+		
+		<asset name="btnDragger" source="assets/DRAGGER.png"/>
+		
+		<asset name="btnLicenseOver" source="assets/infoLICENSE.jpg"/>
+		<asset name="btnContactOver" source="assets/infoCONTACT.jpg"/>
+		
+		<asset name="btnRecordStart" source="assets/RECORD.png"/>
+		<asset name="btnRecordStop" source="assets/RECORD-STOP.png"/>
+		
+		<asset name="busySpinner" source="assets/DUMBSPINNER.png"/>
+	</assets>
+
+	<ui>
+		<image source="shadow" x="0" y="0"/>
+				
+		<container name="mainContainer">
+			<state name="setup">
+				<image source="bg01" x="0" y="0"/>
+				<button onClick="ngUpsellClickHandler" x="179" y="480"><upState><image source="ngUpsell"/></upState></button>
+
+				<radioGroup name="setupGroup"/>
+
+				<radioButton x="363" y="54" name="sourceButton" onClick="navClickHandler" group="setupGroup" selected="true">
+					<hitArea><rectangle x="0" y="0" width="114" height="37"/></hitArea>
+					<overState><image source="btnSourceOver"/></overState>
+					<downState><image source="btnSourceOn"/></downState>
+					<selectedUpState><image source="btnSourceOn"/></selectedUpState>
+				</radioButton>
+
+				<radioButton x="483" y="54" name="videoButton" onClick="navClickHandler" group="setupGroup">
+					<hitArea><rectangle x="0" y="0" width="114" height="37"/></hitArea>
+					<overState><image source="btnVideoOver"/></overState>
+					<downState><image source="btnVideoOn"/></downState>
+					<selectedUpState><image source="btnVideoOn"/></selectedUpState>
+				</radioButton>
+
+				<radioButton x="603" y="54" name="audioButton" onClick="navClickHandler" group="setupGroup">
+					<hitArea><rectangle x="0" y="0" width="114" height="37"/></hitArea>
+					<overState><image source="btnAudioOver"/></overState>
+					<downState><image source="btnAudioOn"/></downState>
+					<selectedUpState><image source="btnAudioOn"/></selectedUpState>
+				</radioButton>
+
+				<radioButton x="723" y="54" name="overlayButton" onClick="navClickHandler" group="setupGroup">
+					<hitArea><rectangle x="0" y="0" width="114" height="37"/></hitArea>
+					<overState><image source="btnOverlayOver"/></overState>
+					<downState><image source="btnOverlayOn"/></downState>
+					<selectedUpState><image source="btnOverlayOn"/></selectedUpState>
+				</radioButton>
+
+				<button x="96" y="488" onClick="aboutClickHandler">
+					<hitArea><rectangle x="0" y="0" width="34" height="39"/></hitArea>
+					<overState><image source="btnInfoOver"/></overState>
+					<downState><image source="btnInfoOn"/></downState>
+				</button>
+
+				<button x="136" y="488" onClick="helpClickHandler">
+					<hitArea><rectangle x="0" y="0" width="34" height="39"/></hitArea>
+					<overState><image source="btnHelpOver"/></overState>
+					<downState><image source="btnHelpOn"/></downState>
+				</button>
+
+				<button x="690" y="488" onClick="convertClickHandler" name="convertButton">
+					<hitArea><rectangle x="0" y="0" width="144" height="39"/></hitArea>
+					<overState><image source="btnConvertOver"/></overState>
+					<downState><image source="btnConvertDown"/></downState>
+				</button>
+
+				<container name="_settingsContainer">
+					<state name="source">
+						<image source="tabSource" x="55" y="96"/>
+						
+						<rectangle x="98" y="194" width="734" height="95" color="0xa6ffffff"/>
+						<rectangle x="98" y="289" width="734" height="75" color="0x40ffffff"/>
+						<rectangle x="98" y="364" width="734" height="45" color="0xa6ffffff"/>
+						<rectangle x="98" y="409" width="734" height="45" color="0x40ffffff"/>
+						
+						<label text="Input SWFs" x="115" y="226" font="Swis721 Cn BT" letterSpacing="1" size="14" bold="true" color="0x425137"/>
+						<label text="Convert an SWF or chain multiple SWFs back-to-back" x="116" y="243" font="AdvoCut_10pt_st" size="10" color="0x425137"/>
+
+						<image x="438" y="204" source="listBoxBigBG"/>
+						<listBox x="438" y="204" name="_fileListBox"/>
+
+						<button x="752" y="204" onClick="addClickHandler">
+							<upState><image source="btnAddUp"/></upState>
+							<overState><image source="btnAddOver"/></overState>
+							<downState><image source="btnAddDown"/></downState>
+						</button>
+						
+						<container x="761" y="241" name="busySpinner"  visible="false">
+							<image x="-9" y="-9" source="busySpinner" />
+						</container>
+
+						<button x="752" y="254" name="removeButton" onClick="removeClickHandler">
+							<upState><image source="btnRemoveUp"/></upState>
+							<overState><image source="btnRemoveOver"/></overState>
+							<downState><image source="btnRemoveDown"/></downState>
+						</button>
+
+						<image source="dummybar" x="97" y="287"/>
+
+						<container name="swfSetupContainer">
+							<label text="Movie Duration" x="115" y="296" font="Swis721 Cn BT" letterSpacing="1" size="14" bold="true" color="0x425137"/>
+							<label text="When to start and stop recording" x="116" y="313" font="AdvoCut_10pt_st" size="10" color="0x425137"/>
+
+							<label text="Frame Range" x="460" y="303" font="Swis721 Cn BT" letterSpacing="1" size="12" bold="true" color="0x425137"/>
+							
+							<radioGroup name="durationGroup"/>
+							<radioButton x="438" y="302" selected="true" group="durationGroup" name="frameRangeButton">
+								<hitArea><rectangle x="0" y="0" width="100" height="23"/></hitArea>
+								<upState><image source="btnRadioUp"/></upState>
+								<overState><image source="btnRadioOver"/></overState>
+								<downState><image source="btnRadioDown"/></downState>
+								<selectedUpState><image source="btnRadioSelected"/></selectedUpState>
+								<selectedOverState><image source="btnRadioOver"/></selectedOverState>
+								<selectedDownState><image source="btnRadioDown"/></selectedDownState>
+							</radioButton>
+						
+							<container name="frameContainer">
+								<label text="Start:" x="677" y="303" font="Swis721 Cn BT" letterSpacing="1" size="12" bold="false" color="0x425137"/>
+								<numericStepper x="715" y="299" name="startFrameStepper" minimum="1" maximum="1" value="1">
+									<image source="textFieldSmall"/>
+										<textBox width="66" textX="8" textY="2" font="AdvoCut_10pt_st" size="10" color="0x425137"/>
+									<incButton>
+										<button x="88" y="0">
+											<upState><image source="btnIncUp"/></upState>
+											<overState><image source="btnIncOver"/></overState>
+											<downState><image source="btnIncDown"/></downState>
+										</button>
+									</incButton>
+									<decButton>
+										<button x="68" y="0">
+											<upState><image source="btnDecUp"/></upState>
+											<overState><image source="btnDecOver"/></overState>
+											<downState><image source="btnDecDown"/></downState>
+										</button>
+									</decButton>
+								</numericStepper>
+
+								
+								<label text="End:" x="685" y="333" font="Swis721 Cn BT" letterSpacing="1" size="12" bold="false" color="0x425137"/>
+								<numericStepper x="715" y="329" name="endFrameStepper" minimum="1" maximum="1" value="1">
+									<image source="textFieldSmall"/>
+									<textBox width="66" textX="8" textY="2" font="AdvoCut_10pt_st" size="10" color="0x425137">
+									</textBox>
+									<incButton>
+										<button x="88" y="0">
+											<upState><image source="btnIncUp"/></upState>
+											<overState><image source="btnIncOver"/></overState>
+											<downState><image source="btnIncDown"/></downState>
+										</button>
+									</incButton>
+									<decButton>
+										<button x="68" y="0">
+											<upState><image source="btnDecUp"/></upState>
+											<overState><image source="btnDecOver"/></overState>
+											<downState><image source="btnDecDown"/></downState>
+										</button>
+									</decButton>
+								</numericStepper>
+							</container>
+
+							<image name="frameStepperImage" x="285" y="290" />
+
+							<label text="Manually Start and Stop Recording" x="460" y="333" font="Swis721 Cn BT" letterSpacing="1" size="12" bold="true" color="0x425137"/>
+							<radioButton x="438" y="332" group="durationGroup" name="manualButton">
+								<hitArea><rectangle x="0" y="0" width="300" height="23"/></hitArea>
+								<upState><image source="btnRadioUp"/></upState>
+								<overState><image source="btnRadioOver"/></overState>
+								<downState><image source="btnRadioDown"/></downState>
+								<selectedUpState><image source="btnRadioSelected"/></selectedUpState>
+								<selectedOverState><image source="btnRadioOver"/></selectedOverState>
+								<selectedDownState><image source="btnRadioDown"/></selectedDownState>
+							</radioButton>
+
+							<image source="dummybar" x="97" y="362"/>
+
+							<label text="Render Quality" x="115" y="369" font="Swis721 Cn BT" letterSpacing="1" size="14" bold="true" color="0x425137"/>
+							<label text="Controls render quality of the stage" x="116" y="386" font="AdvoCut_10pt_st" size="10" color="0x425137"/>
+							
+							<slider x="438" y="376" minimum="0" maximum="2" step="1" labelX="211" labelY="0" font="Swis721 Cn BT" letterSpacing="1" size="12" bold="true" color="0x425137" labelFunc="qualitySliderFunc" name="qualitySlider">
+								<image source="sliderTrack"/>
+								<nub property="x"><image source="btnSliderNubOver" y="2"/></nub>
+							</slider>
+
+							<image source="dummybar" x="97" y="407"/>
+
+							<label text="Bitmap Smoothing" x="115" y="416" font="Swis721 Cn BT" letterSpacing="1" size="14" bold="true" color="0x425137" />
+							<label text="Force bitmap smoothing on all bitmaps" x="116" y="433" font="AdvoCut_10pt_st" size="10" color="0x425137"/>
+
+							<checkBox x="438" y="419" name="bitmapSmoothingCheckBox">
+								<upState><image source="btnCheckUp"/></upState>
+								<overState><image source="btnCheckOver"/></overState>
+								<downState><image source="btnCheckDown"/></downState>
+								<selectedUpState><image source="btnCheckSelected"/></selectedUpState>
+								<selectedOverState><image source="btnCheckOver"/></selectedOverState>
+								<selectedDownState><image source="btnCheckDown"/></selectedDownState>
+							</checkBox>
+						</container>
+
+					</state>
+				
+					<state name="video">
+						<image source="tabVideo" x="55" y="96"/>
+						
+						<rectangle x="98" y="194" width="734" height="45" color="0xa6ffffff"/>
+						<rectangle x="98" y="239" width="734" height="45" color="0x40ffffff"/>
+						<rectangle x="98" y="284" width="734" height="45" color="0xa6ffffff"/>
+						<rectangle x="98" y="329" width="734" height="45" color="0x40ffffff"/>
+						<rectangle x="98" y="374" width="734" height="45" color="0xa6ffffff"/>
+						<rectangle x="98" y="419" width="734" height="45" color="0x40ffffff"/>
+
+						<label text="Output Video Name" x="115" y="201" font="Swis721 Cn BT" letterSpacing="1" size="14" bold="true" color="0x425137"/>
+						<label text="The filename for the final video" x="116" y="218" font="AdvoCut_10pt_st" size="10" color="0x425137"/>
+						
+						<button x="752" y="204" onClick="outputBrowseClickHandler">
+							<upState><image source="btnBrowseUp"/></upState>
+							<overState><image source="btnBrowseOver"/></overState>
+							<downState><image source="btnBrowseDown"/></downState>
+						</button>
+
+						<image source="textFieldBig" x="438" y="204" />
+						<textBox width="312" x="438" y="204" textX="8" textY="1" font="AdvoCut_10pt_st" size="10" bold="true" color="0x425137" name="outputFileBox"/>
+						
+						<image source="dummybar" x="97" y="237"/>
+						
+						<label text="Video Size" x="115" y="246" font="Swis721 Cn BT" letterSpacing="1" size="14" bold="true" color="0x425137"/>
+						<label text="Width and height of the final video in pixels" x="116" y="263" font="AdvoCut_10pt_st" size="10" color="0x425137"/>
+
+						<label text="Width:" x="437" y="252" font="Swis721 Cn BT" letterSpacing="1" size="14" bold="true" color="0x425137"/>
+						<numericStepper x="480" y="249" textX="8" textY="1" font="AdvoCut_10pt_st" size="10" color="0x425137" name="widthStepper" minimum="8"  step="2">
+							<image source="textFieldSmall"/>
+							<textBox width="66" textX="8" textY="2" font="AdvoCut_10pt_st" size="10" color="0x425137"/>
+							<incButton>
+								<button x="88" y="0">
+									<upState><image source="btnIncUp"/></upState>
+									<overState><image source="btnIncOver"/></overState>
+									<downState><image source="btnIncDown"/></downState>
+								</button>
+							</incButton>
+							<decButton>
+								<button x="68" y="0">
+									<upState><image source="btnDecUp"/></upState>
+									<overState><image source="btnDecOver"/></overState>
+									<downState><image source="btnDecDown"/></downState>
+								</button>
+							</decButton>
+						</numericStepper>
+
+						<label text="Height:" x="632" y="252" font="Swis721 Cn BT" letterSpacing="1" size="14" bold="true" color="0x425137"/>
+						<numericStepper x="680" y="249" textX="8" textY="1" font="AdvoCut_10pt_st" size="10" color="0x425137" name="heightStepper" minimum="8"  step="2">
+							<image source="textFieldSmall"/>
+								<textBox width="66" textX="8" textY="2" font="AdvoCut_10pt_st" size="10" color="0x425137"/>
+							<incButton>
+								<button x="88" y="0">
+									<upState><image source="btnIncUp"/></upState>
+									<overState><image source="btnIncOver"/></overState>
+									<downState><image source="btnIncDown"/></downState>
+								</button>
+							</incButton>
+							<decButton>
+								<button x="68" y="0">
+									<upState><image source="btnDecUp"/></upState>
+									<overState><image source="btnDecOver"/></overState>
+									<downState><image source="btnDecDown"/></downState>
+								</button>
+							</decButton>
+						</numericStepper>
+
+						<checkBox x="596" y="249" selected="true" name="lockAspectCheckBox">
+							<upState><image source="btnLockUp"/></upState>
+							<overState><image source="btnLockOver"/></overState>
+							<downState><image source="btnLockSelected"/></downState>
+							<selectedUpState><image source="btnLockSelected"/></selectedUpState>
+							<selectedOverState><image source="btnLockSelectedOver"/></selectedOverState>
+							<selectedDownState><image source="btnLockUp"/></selectedDownState>
+						</checkBox>
+
+						<image source="dummybar" x="97" y="282"/>
+						
+						<label text="Scale Mode" x="115" y="291" font="Swis721 Cn BT" letterSpacing="1" size="14" bold="true" color="0x425137"/>
+						<label text="Adjust how SWFs are scaled to fit the video dimensions" x="116" y="308" font="AdvoCut_10pt_st" size="10" color="0x425137"/>
+
+						<radioGroup name="scaleModeGroup"/>
+						<label text="Crop" x="464" y="296" font="Swis721 Cn BT" letterSpacing="1" size="12" bold="true" color="0x425137"/>
+						<radioButton x="438" y="294" group="scaleModeGroup" selected="true" name="cropButton">
+							<hitArea><rectangle x="0" y="0" width="100" height="23"/></hitArea>
+							<upState><image source="btnRadioUp"/></upState>
+							<overState><image source="btnRadioOver"/></overState>
+							<downState><image source="btnRadioDown"/></downState>
+							<selectedUpState><image source="btnRadioSelected"/></selectedUpState>
+							<selectedOverState><image source="btnRadioOver"/></selectedOverState>
+							<selectedDownState><image source="btnRadioDown"/></selectedDownState>
+						</radioButton>
+
+						<label text="Letterbox" x="594" y="296" font="Swis721 Cn BT" letterSpacing="1" size="12" bold="true" color="0x425137"/>
+						<radioButton x="568" y="294" group="scaleModeGroup" name="letterboxButton">
+							<hitArea><rectangle x="0" y="0" width="100" height="23"/></hitArea>
+							<upState><image source="btnRadioUp"/></upState>
+							<overState><image source="btnRadioOver"/></overState>
+							<downState><image source="btnRadioDown"/></downState>
+							<selectedUpState><image source="btnRadioSelected"/></selectedUpState>
+							<selectedOverState><image source="btnRadioOver"/></selectedOverState>
+							<selectedDownState><image source="btnRadioDown"/></selectedDownState>
+						</radioButton>
+						
+						<label text="Stretch to Fit" x="744" y="296" font="Swis721 Cn BT" letterSpacing="1" size="12" bold="true" color="0x425137"/>
+						<radioButton x="718" y="294" group="scaleModeGroup"  name="exactFitButton">
+							<hitArea><rectangle x="0" y="0" width="100" height="23"/></hitArea>
+							<upState><image source="btnRadioUp"/></upState>
+							<overState><image source="btnRadioOver"/></overState>
+							<downState><image source="btnRadioDown"/></downState>
+							<selectedUpState><image source="btnRadioSelected"/></selectedUpState>
+							<selectedOverState><image source="btnRadioOver"/></selectedOverState>
+							<selectedDownState><image source="btnRadioDown"/></selectedDownState>
+						</radioButton>
+
+						<image source="dummybar" x="97" y="327"/>
+						
+						<label text="Transparent Background" x="115" y="336" font="Swis721 Cn BT" letterSpacing="1" size="14" bold="true" color="0x425137"/>
+						<label text="Render the movie with an alpha channel" x="116" y="353" font="AdvoCut_10pt_st" size="10" color="0x425137"/>
+						
+						<checkBox x="438" y="339" selected="false" name="transparentBgCheckBox">
+							<upState><image source="btnCheckUp"/></upState>
+							<overState><image source="btnCheckOver"/></overState>
+							<downState><image source="btnCheckDown"/></downState>
+							<selectedUpState><image source="btnCheckSelected"/></selectedUpState>
+							<selectedOverState><image source="btnCheckOver"/></selectedOverState>
+							<selectedDownState><image source="btnCheckDown"/></selectedDownState>
+						</checkBox>
+						
+						<image source="dummybar" x="97" y="372"/>
+						
+						<slider x="438" y="432" minimum="262144" maximum="25165824" step="512" labelX="211" labelY="0" font="Swis721 Cn BT" letterSpacing="1" size="12" bold="true" color="0x425137" labelFunc="videoBitrateLabelFunc" name="videoBitrateSlider" value="4194304">
+							<image source="sliderTrack"/>
+							<nub property="x"><image source="btnSliderNubOver" y="2"/></nub>
+						</slider>
+						
+						<label text="Video Codec" x="115" y="381" font="Swis721 Cn BT" letterSpacing="1" size="14" bold="true" color="0x425137"/>
+						<label text="Select video compression" x="116" y="398" font="AdvoCut_10pt_st" size="10" color="0x425137"/>
+						
+						<!--<image x="438" y="387" source="listBoxBigBG"/>
+						<listBox x="438" y="387" name="codecListBox" />-->
+						<image source="dummybar" x="97" y="417"/>
+						
+						<selectBox x="438" y="384" name="codecSelectBox" />
+						
+						
+						<label text="Video Bitrate" x="115" y="426" font="Swis721 Cn BT" letterSpacing="1" size="14" bold="true" color="0x425137"/>
+						<label text="Higher values result in increased quality and file size" x="116" y="443" font="AdvoCut_10pt_st" size="10" color="0x425137"/>
+						
+
+						
+					</state>
+					
+					<!--<state name="codec">
+					</state>-->
+					
+					<state name="audio">
+						<image source="tabAudio" x="55" y="96"/>
+						
+						<rectangle x="98" y="194" width="734" height="95" color="0xa6ffffff"/>
+						<rectangle x="98" y="289" width="734" height="45" color="0x40ffffff"/>
+						<rectangle x="98" y="334" width="734" height="45" color="0xa6ffffff"/>
+						<rectangle x="98" y="379" width="734" height="45" color="0x40ffffff"/>
+						<rectangle x="98" y="424" width="734" height="45" color="0xa6ffffff"/>
+						
+						<label text="Audio Source" x="115" y="226" font="Swis721 Cn BT" letterSpacing="1" size="14" bold="true" color="0x425137"/>
+						<label text="Select the audio source" x="116" y="243" font="AdvoCut_10pt_st" size="10" color="0x425137"/>
+						
+						<radioGroup name="audioGroup"/>
+						<label text="No Audio" x="464" y="206" font="Swis721 Cn BT" letterSpacing="1" size="12" bold="true" color="0x425137"/>
+						<radioButton x="438" y="204" group="audioGroup" name="noAudioButton">
+							<hitArea><rectangle x="0" y="0" width="300" height="23"/></hitArea>
+							<upState><image source="btnRadioUp"/></upState>
+							<overState><image source="btnRadioOver"/></overState>
+							<downState><image source="btnRadioDown"/></downState>
+							<selectedUpState><image source="btnRadioSelected"/></selectedUpState>
+							<selectedOverState><image source="btnRadioOver"/></selectedOverState>
+							<selectedDownState><image source="btnRadioDown"/></selectedDownState>
+						</radioButton>
+						
+						<label text="Extract from SWF" x="464" y="233" font="Swis721 Cn BT" letterSpacing="1" size="12" bold="true" color="0x425137"/>
+						<radioButton x="438" y="231" selected="true" group="audioGroup" name="swfAudioButton">
+							<hitArea><rectangle x="0" y="0" width="300" height="23"/></hitArea>
+							<upState><image source="btnRadioUp"/></upState>
+							<overState><image source="btnRadioOver"/></overState>
+							<downState><image source="btnRadioDown"/></downState>
+							<selectedUpState><image source="btnRadioSelected"/></selectedUpState>
+							<selectedOverState><image source="btnRadioOver"/></selectedOverState>
+							<selectedDownState><image source="btnRadioDown"/></selectedDownState>
+						</radioButton>
+						
+						<label text="External Audio Track" x="464" y="260" font="Swis721 Cn BT" letterSpacing="1" size="12" bold="true" color="0x425137"/>
+						<radioButton x="438" y="258" group="audioGroup" name="externalAudioButton">
+							<hitArea><rectangle x="0" y="0" width="300" height="23"/></hitArea>
+							<upState><image source="btnRadioUp"/></upState>
+							<overState><image source="btnRadioOver"/></overState>
+							<downState><image source="btnRadioDown"/></downState>
+							<selectedUpState><image source="btnRadioSelected"/></selectedUpState>
+							<selectedOverState><image source="btnRadioOver"/></selectedOverState>
+							<selectedDownState><image source="btnRadioDown"/></selectedDownState>
+						</radioButton>
+						
+						<image source="dummybar" x="97" y="287"/>
+						
+						<container name="externalAudioContainer">
+							<label text="External Track" x="115" y="296" font="Swis721 Cn BT" letterSpacing="1" size="14" bold="true" color="0x425137"/>
+							<label text="Browse for an audio track for the video" x="116" y="313" font="AdvoCut_10pt_st" size="10" color="0x425137"/>
+							
+							<image source="textFieldBig" x="438" y="299" />
+							<textBox width="312" x="438" y="299" textX="8" textY="1" font="AdvoCut_10pt_st" size="10" bold="true" color="0x425137" name="externalAudioFileBox" />
+							
+							<button x="752" y="299" onClick="audioBrowseClickHandler">
+								<upState><image source="btnBrowseUp"/></upState>
+								<overState><image source="btnBrowseOver"/></overState>
+								<downState><image source="btnBrowseDown"/></downState>
+							</button>
+						</container>
+						
+						<image source="dummybar" x="97" y="332"/>
+						
+						<label text="Audio Channels" x="115" y="341" font="Swis721 Cn BT" letterSpacing="1" size="14" bold="true" color="0x425137"/>
+						<label text="Number of audio channels" x="116" y="358" font="AdvoCut_10pt_st" size="10" color="0x425137"/>
+						
+						<radioGroup name="audioChannelGroup"/>
+						<label text="Mono" x="464" y="346" font="Swis721 Cn BT" letterSpacing="1" size="12" bold="true" color="0x425137"/>
+						<radioButton x="438" y="344" group="audioChannelGroup" name="monoRadioButton">
+							<hitArea><rectangle x="0" y="0" width="100" height="23"/></hitArea>
+							<upState><image source="btnRadioUp"/></upState>
+							<overState><image source="btnRadioOver"/></overState>
+							<downState><image source="btnRadioDown"/></downState>
+							<selectedUpState><image source="btnRadioSelected"/></selectedUpState>
+							<selectedOverState><image source="btnRadioOver"/></selectedOverState>
+							<selectedDownState><image source="btnRadioDown"/></selectedDownState>
+						</radioButton>
+
+						<label text="Stereo" x="564" y="346" font="Swis721 Cn BT" letterSpacing="1" size="12" bold="true" color="0x425137"/>
+						<radioButton x="538" y="344" group="audioChannelGroup" selected="true">
+							<hitArea><rectangle x="0" y="0" width="100" height="23"/></hitArea>
+							<upState><image source="btnRadioUp"/></upState>
+							<overState><image source="btnRadioOver"/></overState>
+							<downState><image source="btnRadioDown"/></downState>
+							<selectedUpState><image source="btnRadioSelected"/></selectedUpState>
+							<selectedOverState><image source="btnRadioOver"/></selectedOverState>
+							<selectedDownState><image source="btnRadioDown"/></selectedDownState>
+						</radioButton>
+						
+						<image source="dummybar" x="97" y="379"/>
+						
+						<slider x="438" y="437" minimum="65536" maximum="327680" step="16384" labelX="211" labelY="0" font="Swis721 Cn BT" letterSpacing="1" size="12" bold="true" color="0x425137" labelFunc="audioBitrateLabelFunc" name="audioBitrateSlider" value="131072">
+							<image source="sliderTrack"/>
+							<nub property="x"><image source="btnSliderNubOver" y="2"/></nub>
+						</slider>
+						
+						<label text="Audio Codec" x="115" y="388" font="Swis721 Cn BT" letterSpacing="1" size="14" bold="true" color="0x425137"/>
+						<label text="Select audio compression" x="116" y="405" font="AdvoCut_10pt_st" size="10" color="0x425137"/>
+						
+						<!--<image x="438" y="394" source="listBoxBigBG"/>
+						<listBox x="438" y="394" name="audioCodecListBox" />-->
+						
+						<image source="dummybar" x="97" y="422"/>
+												
+						<selectBox x="438" y="389" name="audioCodecSelectBox" />
+						
+						<label text="Audio Bitrate" x="115" y="431" font="Swis721 Cn BT" letterSpacing="1" size="14" bold="true" color="0x425137"/>
+						<label text="Higher values result in increased quality and file size" x="116" y="448" font="AdvoCut_10pt_st" size="10" color="0x425137"/>
+						
+						
+						
+					</state>
+					
+					<state name="overlay">
+						<image source="tabOverlay" x="55" y="96"/>
+						
+						<rectangle x="98" y="194" width="734" height="45" color="0xa6ffffff"/>
+						<rectangle x="98" y="239" width="734" height="45" color="0x40ffffff"/>
+						<rectangle x="98" y="284" width="734" height="95" color="0xa6ffffff"/>
+						<rectangle x="98" y="379" width="734" height="45" color="0x40ffffff"/>
+						<rectangle x="98" y="424" width="734" height="45" color="0xa6ffffff"/>
+						
+						<label text="Enable Watermark" x="115" y="201" font="Swis721 Cn BT" letterSpacing="1" size="14" bold="true" color="0x425137"/>
+						<label text="Display a graphic over top of the video" x="116" y="218" font="AdvoCut_10pt_st" size="10" color="0x425137"/>
+						
+						<checkBox x="438" y="204" name="watermarkEnabledCheckBox">
+							<upState><image source="btnCheckUp"/></upState>
+							<overState><image source="btnCheckOver"/></overState>
+							<downState><image source="btnCheckDown"/></downState>
+							<selectedUpState><image source="btnCheckSelected"/></selectedUpState>
+							<selectedOverState><image source="btnCheckOver"/></selectedOverState>
+							<selectedDownState><image source="btnCheckDown"/></selectedDownState>
+						</checkBox>
+						
+						<image source="dummybar" x="97" y="237"/>
+						<container name="watermarkSettingsContainer">
+							<label text="Watermark Image" x="115" y="246" font="Swis721 Cn BT" letterSpacing="1" size="14" bold="true" color="0x425137"/>
+							<label text="Browse for an image" x="116" y="263" font="AdvoCut_10pt_st" size="10" color="0x425137"/>
+							
+							<image source="textFieldBig" x="438" y="249" />
+							<textBox width="312" x="438" y="249" textX="8" textY="1" font="AdvoCut_10pt_st" size="10" bold="true" color="0x425137" name="watermarkFileBox" />
+							
+							<button x="752" y="249" onClick="overlayBrowseClickHandler">
+								<upState><image source="btnBrowseUp"/></upState>
+								<overState><image source="btnBrowseOver"/></overState>
+								<downState><image source="btnBrowseDown"/></downState>
+							</button>
+							
+							<image source="dummybar" x="97" y="282"/>
+							
+							<label text="Alignment" x="115" y="316" font="Swis721 Cn BT" letterSpacing="1" size="14" bold="true" color="0x425137"/>
+							<label text="Position the watermark in the frame" x="116" y="333" font="AdvoCut_10pt_st" size="10" color="0x425137"/>
+							
+							<radioGroup name="alignmentGroup"/>
+							<radioButton x="438" y="299" group="alignmentGroup">
+								<upState><image source="btnAlignUp"/></upState>
+								<overState><image source="btnAlignOver"/></overState>
+								<downState><image source="btnAlignDown"/></downState>
+								<selectedUpState><image source="btnAlignSelected"/></selectedUpState>
+								<selectedOverState><image source="btnAlignOver"/></selectedOverState>
+								<selectedDownState><image source="btnAlignDown"/></selectedDownState>
+							</radioButton>
+							<radioButton x="468" y="299" group="alignmentGroup">
+								<upState><image source="btnAlignUp"/></upState>
+								<overState><image source="btnAlignOver"/></overState>
+								<downState><image source="btnAlignDown"/></downState>
+								<selectedUpState><image source="btnAlignSelected"/></selectedUpState>
+								<selectedOverState><image source="btnAlignOver"/></selectedOverState>
+								<selectedDownState><image source="btnAlignDown"/></selectedDownState>
+							</radioButton>
+							<radioButton x="498" y="299" group="alignmentGroup">
+								<upState><image source="btnAlignUp"/></upState>
+								<overState><image source="btnAlignOver"/></overState>
+								<downState><image source="btnAlignDown"/></downState>
+								<selectedUpState><image source="btnAlignSelected"/></selectedUpState>
+								<selectedOverState><image source="btnAlignOver"/></selectedOverState>
+								<selectedDownState><image source="btnAlignDown"/></selectedDownState>
+							</radioButton>
+							<radioButton x="438" y="321" group="alignmentGroup">
+								<upState><image source="btnAlignUp"/></upState>
+								<overState><image source="btnAlignOver"/></overState>
+								<downState><image source="btnAlignDown"/></downState>
+								<selectedUpState><image source="btnAlignSelected"/></selectedUpState>
+								<selectedOverState><image source="btnAlignOver"/></selectedOverState>
+								<selectedDownState><image source="btnAlignDown"/></selectedDownState>
+							</radioButton>
+							<radioButton x="468" y="321" group="alignmentGroup">
+								<upState><image source="btnAlignUp"/></upState>
+								<overState><image source="btnAlignOver"/></overState>
+								<downState><image source="btnAlignDown"/></downState>
+								<selectedUpState><image source="btnAlignSelected"/></selectedUpState>
+								<selectedOverState><image source="btnAlignOver"/></selectedOverState>
+								<selectedDownState><image source="btnAlignDown"/></selectedDownState>
+							</radioButton>
+							<radioButton x="498" y="321" group="alignmentGroup">
+								<upState><image source="btnAlignUp"/></upState>
+								<overState><image source="btnAlignOver"/></overState>
+								<downState><image source="btnAlignDown"/></downState>
+								<selectedUpState><image source="btnAlignSelected"/></selectedUpState>
+								<selectedOverState><image source="btnAlignOver"/></selectedOverState>
+								<selectedDownState><image source="btnAlignDown"/></selectedDownState>
+							</radioButton>
+							<radioButton x="438" y="343" group="alignmentGroup" selected="true">
+								<upState><image source="btnAlignUp"/></upState>
+								<overState><image source="btnAlignOver"/></overState>
+								<downState><image source="btnAlignDown"/></downState>
+								<selectedUpState><image source="btnAlignSelected"/></selectedUpState>
+								<selectedOverState><image source="btnAlignOver"/></selectedOverState>
+								<selectedDownState><image source="btnAlignDown"/></selectedDownState>
+							</radioButton>
+							<radioButton x="468" y="343" group="alignmentGroup">
+								<upState><image source="btnAlignUp"/></upState>
+								<overState><image source="btnAlignOver"/></overState>
+								<downState><image source="btnAlignDown"/></downState>
+								<selectedUpState><image source="btnAlignSelected"/></selectedUpState>
+								<selectedOverState><image source="btnAlignOver"/></selectedOverState>
+								<selectedDownState><image source="btnAlignDown"/></selectedDownState>
+							</radioButton>
+							<radioButton x="498" y="343" group="alignmentGroup">
+								<upState><image source="btnAlignUp"/></upState>
+								<overState><image source="btnAlignOver"/></overState>
+								<downState><image source="btnAlignDown"/></downState>
+								<selectedUpState><image source="btnAlignSelected"/></selectedUpState>
+								<selectedOverState><image source="btnAlignOver"/></selectedOverState>
+								<selectedDownState><image source="btnAlignDown"/></selectedDownState>
+							</radioButton>
+							
+							<rectangle name="watermarkPreview" x="713" y="301" width="0" height="0" color="0x00000000" />
+						
+							<image source="dummybar" x="97" y="378"/>
+							
+							<label text="Size" x="115" y="386" font="Swis721 Cn BT" letterSpacing="1" size="14" bold="true" color="0x425137"/>
+							<label text="Set the size of the watermark" x="116" y="403" font="AdvoCut_10pt_st" size="10" color="0x425137"/>
+							
+							<slider x="438" y="393" minimum="0" maximum="4" step=".01" labelX="211" labelY="0" font="Swis721 Cn BT" letterSpacing="1" size="12" bold="true" color="0x425137" labelFunc="alphaSliderFunc" name="watermarkSizeSlider" value="1.0">
+								<image source="sliderTrack"/>
+								<nub property="x"><image source="btnSliderNubOver" y="2"/></nub>
+							</slider>
+							
+							<image source="dummybar" x="97" y="422"/>
+							
+							<label text="Transparency" x="115" y="431" font="Swis721 Cn BT" letterSpacing="1" size="14" bold="true" color="0x425137"/>
+							<label text="Set the opacity of the watermark" x="116" y="448" font="AdvoCut_10pt_st" size="10" color="0x425137"/>
+							
+							<slider x="438" y="438" minimum="0" maximum="1" step=".01" labelX="211" labelY="0" font="Swis721 Cn BT" letterSpacing="1" size="12" bold="true" color="0x425137" labelFunc="alphaSliderFunc" name="watermarkAlphaSlider" value="1.0">
+								<image source="sliderTrack"/>
+								<nub property="x"><image source="btnSliderNubOver" y="2"/></nub>
+							</slider>
+						</container>
+						
+					</state>
+				</container>
+			</state>
+			
+			<state name="converting">
+				<image source="bgConverting" x="0" y="0"/>
+				<scaledImage name="_previewImage" x="114" y="64" width="702" height="395" />
+				
+				<label x="96" y="486" font="Swis721 Cn BT" letterSpacing="1" size="13" bold="true" color="0x425137" name="progressText" />
+				<progressBar x="101" y="509" minimum="0" maximum="1" step="0" labelX="9999" name="progressBar">
+					<nub property="width"><image source="progressBar"/></nub>
+				</progressBar>
+				
+				<checkBox x="385" y="400" onMouseDown="toggleRecordingHandler" name="recordingButton" visible="false">
+					<upState><image source="btnRecordStart"/></upState>
+					<selectedUpState><image source="btnRecordStop"/></selectedUpState>
+				</checkBox>
+				
+				<button x="690" y="488" onMouseDown="cancelClickHandler" name="cancelButton">
+					<upState><image source="btnCancelUp"/></upState>
+					<overState><image source="btnCancelOver"/></overState>
+					<downState><image source="btnCancelDown"/></downState>
+				</button>
+			</state>
+			
+			<state name="complete">
+				<image source="bgConverting" x="0" y="0"/>
+				
+				<rectangle x="426" y="234" width="2" height="90" color="0x597E9D4F"/>
+				
+				<image source="txtComplete" x="312" y="194"/>
+
+				<label align="right" width="220" text="Your Video:" x="197" y="234" font="Swis721 Cn BT" letterSpacing="1" size="13" bold="true" color="0x7E9D4F"/>
+				<label x="437" y="234" font="Swis721 Cn BT" letterSpacing="1" size="13" bold="true" color="0xFF9900" name="videoNameText" />
+				<label text="Click to open your video" x="438" y="247" font="AdvoCut_10pt_st" size="10" bold="false" color="0x7E9D4F"/>
+				<button onClick="videoNameClickHandler">
+					<hitArea><rectangle x="437" y="234" width="300" height="40" depth="1"/></hitArea>
+				</button>
+				
+				<label align="right" width="220" text="Size on Disk:" x="197" y="274" font="Swis721 Cn BT" letterSpacing="1" size="13" bold="true" color="0x7E9D4F"/>
+				<label x="437" y="274" font="Swis721 Cn BT" letterSpacing="1" size="13" bold="true" color="0xFFFFFF" name="fileSizeText" />
+				
+				<label align="right" width="220" text="Conversion Time:" x="197" y="304" font="Swis721 Cn BT" letterSpacing="1" size="13" bold="true" color="0x7E9D4F"/>
+				<label x="437" y="304" font="Swis721 Cn BT" letterSpacing="1" size="13" bold="true" color="0xFFFFFF" name="timeText"/>
+				
+				<label x="96" y="486" font="Swis721 Cn BT" letterSpacing="1" size="13" bold="true" color="0x425137" text="Complete!"/>
+
+				<image source="progressBar" x="101" y="509"/>
+				
+				<button x="690" y="488" onClick="backClickHandler">
+					<upState><image source="btnBackUp"/></upState>
+					<overState><image source="btnBackOver"/></overState>
+					<downState><image source="btnBackDown"/></downState>
+				</button>
+			</state>
+			
+			<state name="error">
+				<image source="bgConverting" x="0" y="0"/>
+				
+				<label x="120" y="70" font="AdvoCut_10pt_st" size="10" color="0xffffff" width="700" height="400" wordWrap="true" name="errorText" editable="true" />
+			</state>
+		</container>
+		
+		
+		<button onMouseDown="dragWindowHandler"><hitArea><rectangle x="0" y="0" width="930" height="40" depth="1"/></hitArea></button>
+		<button onMouseDown="dragWindowHandler"><hitArea><rectangle x="0" y="0" width="80" height="600" depth="1"/></hitArea></button>
+		<button onMouseDown="dragWindowHandler"><hitArea><rectangle x="850" y="0" width="930" height="590" depth="1"/></hitArea></button>
+		<button onMouseDown="dragWindowHandler"><hitArea><rectangle x="0" y="550" width="930" height="590" depth="1"/></hitArea></button>
+			
+		<button onClick="minClickHandler" x="854" y="1" depth="1">
+			<hitArea><rectangle x="0" y="0" width="25" height="17"/></hitArea>
+			<overState><image source="btnMinOver"/></overState>
+			<downState><image source="btnMinDown"/></downState>
+		</button>
+
+		<button x="884" y="1" onClick="closeClickHandler" depth="1">
+			<hitArea><rectangle x="0" y="0" width="25" height="17"/></hitArea>
+			<overState><image source="btnCloseOver"/></overState>
+			<downState><image source="btnCloseDown"/></downState>
+		</button>
+		
+		<container name="aboutBox" visible="false">
+			<image source="killBg" x="10" y="10" />
+			<image source="aboutBoxLights" x="127" y="117" />
+			<label alpha=".25" text="Swivel ©2013 Newgrounds.com, Inc.\nSwivel uses software from the FFmpeg project, licensed under the GPLv2.\nAll logos and trademarks are the property of their respective owners." width="800" height="60" x="50" y="496" color="0xffffff" font="Swis721 Cn BT" letterSpacing="1" size="12" bold="true" align="center" />
+			<button onClick="aboutCloseHandler">
+				<hitArea><rectangle x="0" y="0" width="920" height="580"/></hitArea>
+			</button>
+			<image x="127" y="115" source="aboutBox"/>
+			<button onClick="contactClickHandler" x="227" y="294">
+				<hitArea><rectangle x="0" y="0" width="90" height="32"/></hitArea>
+				<overState><image source="btnContactOver"/></overState>
+			</button>
+			<button onClick="licenseClickHandler" x="318" y="294">
+				<hitArea><rectangle x="0" y="0" width="90" height="32"/></hitArea>
+				<overState><image source="btnLicenseOver"/></overState>
+			</button>
+			<label name="versionText" x="260" y="191" font="AdvoCut_10pt_st" size="10" bold="true" color="0x404D35" align="right" width="150" />
+			<label name="creditsText" x="430" y="158" width="270" height="1500" font="AdvoCut_10pt_st" size="10" bold="true" color="0xffffff" align="center" wordWrap="true"
+			text="SWIVEL\nSWF-to-Video Converter\n©2013 Newgrounds.com, Inc.\n\nDeveloped by Mike Welsh\nInterface by Stamper\nVox by Hania Lee\n\nDeveloped using Haxe and Adobe AIR\n\nThis software utilizes the FFmpeg project with other supporting libraries, including libx264, libtheora, and libvorbis. These projects are property of their respective owners, and are NOT owned by Newgrounds.com, Inc. These projects are licensed under their respective licenses. To view the full licenses, click the License button.\n\nVery special thanks to the maintainers and contributors of FFmpeg and these projects. This program would not be possible without your awesome work!\n\n\nTesters\n\nChris 'Oney' O'Neill\nChristina 'Jaxxy' Tomar\nDon Greger\nMarco 'Evil-Dog' Arsenault\nHarry Partridge\nJeff Bandelin\nJeremy Zaczek\nJonas Boda\nMindChamber\nJosh 'Tomamoto' Tomar\nLuka Marcetic\nMark Schneider\nMatt 'Krinkels' Jolly\nMick 'RicePirate' Lauer\nMichael Swain\nSteve 'SardonicSamurai' V\nShawn 'Afro-Ninja' Tanner\nNick Pasto\nZach 'PsychicPebbles' Hadel\nRobert Lovelett\nRyan 'rtil' Miller\nSpazkid\nWade Fulp\nZachary Lew\nMatt 'Patonion' Paton\nRyan 'MiddleFingerRings' Maddox\nAdam Phillips\nAnyone I forgot\n\nVery Special Thanks\n\nAshley 'Jellybean' Aberg\nTom Fulp\nSushi (the cat)\nRobotron 2084\nRob Lovelett\nDavid Robbins\ncaptin of cats\nMike 'Spiked3' Partain\nJustin Welsh\nTim Sanker\nDoylestown 3rd Strike"/>
+			
+			
+		</container>
+		
+	</ui>
+</application>

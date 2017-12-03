@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project version="2">
+  <!-- Output SWF options -->
+  <output>
+    <movie outputType="Application" />
+    <movie input="" />
+    <movie path="bin\Swivel.swf" />
+    <movie fps="30" />
+    <movie width="930" />
+    <movie height="590" />
+    <movie version="3" />
+    <movie minorVersion="5" />
+    <movie platform="AIR" />
+    <movie background="#FFFFFF" />
+  </output>
+  <!-- Other classes to be compiled into your SWF -->
+  <classpaths>
+    <class path="src" />
+    <class path="huey\src" />
+  </classpaths>
+  <!-- Build options -->
+  <build>
+    <option directives="air" />
+    <option flashStrict="True" />
+    <option noInlineOnDebug="False" />
+    <option mainClass="com.newgrounds.swivel.Swivel" />
+    <option enabledebug="True" />
+    <option additional="-swf-version 11.4" />
+  </build>
+  <!-- haxelib libraries -->
+  <haxelib>
+    <library name="air3" />
+    <library name="format:3.3.0" />
+  </haxelib>
+  <!-- Class files to compile (other referenced classes will automatically be included) -->
+  <compileTargets>
+    <compile path="src\com\newgrounds\swivel\Swivel.hx" />
+  </compileTargets>
+  <!-- Assets to embed into the output SWF -->
+  <library>
+    <asset path="assets\SwivelFonts.swf" />
+  </library>
+  <!-- Paths to exclude from the Project Explorer tree -->
+  <hiddenPaths>
+    <hidden path="obj" />
+  </hiddenPaths>
+  <!-- Executed before build -->
+  <preBuildCommand />
+  <!-- Executed after build -->
+  <postBuildCommand alwaysRun="False" />
+  <!-- Other project options -->
+  <options>
+    <option showHiddenPaths="False" />
+    <option testMovie="Custom" />
+    <option testMovieCommand="Run.bat" />
+  </options>
+  <!-- Plugin storage -->
+  <storage />
+</project>

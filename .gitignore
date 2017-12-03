@@ -1,0 +1,13 @@
+/bin
+/obj
+/redirecter/ipch
+/redirecter/Debug
+/redirecter/Release
+/redirecter/redirecter/Debug
+/redirecter/redirecter/Release
+RECOVER_*.fla
+*.mp4
+*.opensdf
+*.sdf
+*.suo
+*.vcxproj.user
