@@ -275,7 +275,7 @@ class Swivel extends Application
 		Binding.bind( convertButton.enabled, _controller.jobs.length > 0 && _controller.outputFile != null);
 		Binding.bind( swfSetupContainer.enabled, _fileListBox.selectedItem != null );
 		Binding.bind( _fileListBox.items, _controller.jobs.array );
-		Binding.bind( qualitySlider.value, Type.enumIndex(_fileListBox.selectedItem.renderQuality) );
+		Binding.bind( qualitySlider.value, _fileListBox.selectedItem.renderQuality.getIndex());
 		untyped qualitySlider._implComponent.addEventListener(MouseEvent.MOUSE_DOWN, qualitySecretHandler );
 		Binding.bind( _fileListBox.selectedItem.renderQuality, Type.createEnumIndex(RenderQuality, Std.int(qualitySlider.value)) );
 		Binding.bind( outputFileBox.text, _controller.outputFile.nativePath );
@@ -312,7 +312,7 @@ class Swivel extends Application
 		Binding.bind( _controller.scaleMode, {
 			if(lockAspectCheckBox.selected || scaleModeGroup.selectedItem == cropButton) crop;
 			else if(scaleModeGroup.selectedItem == letterboxButton) letterbox;
-			else if(scaleModeGroup.selectedItem == exactFitButton) stretchToFit;
+			else stretchToFit;
 		} );
 		
 		Binding.bindTwoWay( _controller.transparentBackground, transparentBgCheckBox.selected );
@@ -330,7 +330,7 @@ class Swivel extends Application
 		Binding.bind( _controller.audioSource, {
 			if(audioGroup.selectedItem == noAudioButton) none;
 			else if(audioGroup.selectedItem == swfAudioButton) swf;
-			else if(audioGroup.selectedItem == externalAudioButton) external(externalAudioFile);
+			else external(externalAudioFile);
 		} );
 		Binding.bind( externalAudioContainer.enabled, externalAudioButton.selected );
 		audioCodecSelectBox.items = com.newgrounds.swivel.ffmpeg.FfmpegProcess.FfmpegEncoder.AUDIO_CODECS;
@@ -372,9 +372,9 @@ class Swivel extends Application
 	}
 	
 
-	private function dragWindowHandler(e)NativeApplication.nativeApplication.activeWindow.startMove()
-	private function closeClickHandler(e) if(aboutBox.visible) aboutCloseHandler(null) else exit()
-	private function minClickHandler(e) minimize()
+	private function dragWindowHandler(e) NativeApplication.nativeApplication.activeWindow.startMove();
+	private function closeClickHandler(e) if(aboutBox.visible) aboutCloseHandler(null) else exit();
+	private function minClickHandler(e) minimize();
 	private function aboutClickHandler(_) {
 		aboutBox.visible = true;
 		untyped creditsText._implComponent.scrollRect = new flash.geom.Rectangle(0, -230, 300, 225);
@@ -385,8 +385,8 @@ class Swivel extends Application
 		untyped creditsText._implComponent.scrollRect = new flash.geom.Rectangle(0, creditsText._implComponent.scrollRect.y+1, 300, 225);
 	}
 	
-	private function helpClickHandler(_) flash.Lib.getURL(new flash.net.URLRequest("http://www.newgrounds.com/swivel"))
-	private function ngUpsellClickHandler(_) flash.Lib.getURL(new flash.net.URLRequest("http://www.newgrounds.com/projects/movies/submit"))
+	private function helpClickHandler(_) flash.Lib.getURL(new flash.net.URLRequest("http://www.newgrounds.com/swivel"));
+	private function ngUpsellClickHandler(_) flash.Lib.getURL(new flash.net.URLRequest("http://www.newgrounds.com/projects/movies/submit"));
 	
 	private function addClickHandler(e) : Void {
 		// TODO: create File class
@@ -399,7 +399,7 @@ class Swivel extends Application
 		_controller.jobs.splice(_fileListBox.selectedIndex, 1);
 	}
 
-	private function spinBusyIcon() untyped busySpinner._implComponent.rotation -= 40
+	private function spinBusyIcon() untyped busySpinner._implComponent.rotation -= 40;
 	private function fileSelectHandler(e) {
 		busySpinner.visible = true;
 		flash.Lib.current.mouseChildren = flash.Lib.current.tabEnabled = false;
@@ -474,7 +474,7 @@ class Swivel extends Application
 		if(_fileListBox.selectedItem != null) {
 			var swf : SwivelSwf = _fileListBox.selectedItem.swf;
 			if(swf != null) {
-				var frame = if(e != null) cast(e.source).value else Std.int(startFrameStepper.value);
+				var frame = if(e != null) untyped(e.source).value else Std.int(startFrameStepper.value);
 				_previewGenerator.getPreview(swf, frame);
 			}
 		}
@@ -653,7 +653,7 @@ class Swivel extends Application
 	}
 	
 	// === OVERLAY TAB ===
-	private function alphaSliderFunc(v : Float) return Std.string(Std.int(v * 100)) + "%"
+	private function alphaSliderFunc(v : Float) return Std.string(Std.int(v * 100)) + "%";
 	
 	private function overlayBrowseClickHandler(e) : Void {
 		_watermarkFile = new File();
@@ -736,8 +736,8 @@ class Swivel extends Application
 		flash.Lib.current.removeEventListener(flash.events.Event.ENTER_FRAME, aboutFrameHandler);
 		flash.Lib.current.stage.frameRate = 30;
 	}
-	private function contactClickHandler(_) flash.Lib.getURL(new flash.net.URLRequest("mailto:mike@newgrounds.com"))
-	private function licenseClickHandler(_) File.applicationDirectory.resolvePath("license.txt").openWithDefaultApplication()
+	private function contactClickHandler(_) flash.Lib.getURL(new flash.net.URLRequest("mailto:mike@newgrounds.com"));
+	private function licenseClickHandler(_) File.applicationDirectory.resolvePath("license.txt").openWithDefaultApplication();
 	
 	// === ENCODING ===
 	
@@ -782,7 +782,7 @@ class Swivel extends Application
 		untyped qualitySlider.mouseMoveHandler(null);
 	}
 	
-	private function qualitySliderFunc(v : Float) return ["Low", "Medium", "High", "Higher", "Highest"][Std.int(v)]
+	private function qualitySliderFunc(v : Float) return ["Low", "Medium", "High", "Higher", "Highest"][Std.int(v)];
 	
 	private function cancelClickHandler(e) : Void {
 		if(Type.enumConstructor(_controller.currentTask) == "EncodeSwf") {
@@ -801,14 +801,14 @@ class Swivel extends Application
 	}
 	
 	// === ENCODING COMPLETE ===
-	private function videoNameClickHandler(_) _controller.outputFile.openWithDefaultApplication()
-	private function backClickHandler(_) mainContainer.state = "setup"
+	private function videoNameClickHandler(_) _controller.outputFile.openWithDefaultApplication();
+	private function backClickHandler(_) mainContainer.state = "setup";
 	
 	override private function uncaughtErrorHandler(e) {
 		e.preventDefault();
 		if(!_isCmdLine ) {
 			mainContainer.state = "error";
-			errorText.text = 'Whoa! Something bad happened, and the program blew up. Sorry about that!\nPlease copy and paste this junk and send it to mike@newgrounds.com along with the SWF you were converting:\n\n${Std.string(e.error)}\n${haxe.Stack.exceptionStack().join("\n")}';
+			errorText.text = 'Whoa! Something bad happened, and the program blew up. Sorry about that!\nPlease copy and paste this junk and send it to mike@newgrounds.com along with the SWF you were converting:\n\n${Std.string(e.error)}\n${haxe.CallStack.exceptionStack().join("\n")}';
 		} else {
 			NativeApplication.nativeApplication.exit(-1);
 		}

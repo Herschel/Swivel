@@ -11,9 +11,9 @@ class AS3SwivelConnection implements ISwivelConnection
 	private static var _instance : AS3SwivelConnection;
 	
 	private var _client : Dynamic;
-	public var client(get_client,set_client) : Dynamic;
+	public var client(get,set) : Dynamic;
 	private function get_client() : Dynamic				{ return _client; }
-	private function set_client(v)	{ return _client = v; }
+	private function set_client(v : Dynamic ) : Dynamic	{ return _client = v; }
 	
 	public function new() {
 		_instance = this;

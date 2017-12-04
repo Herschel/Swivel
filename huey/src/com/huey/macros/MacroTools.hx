@@ -167,9 +167,6 @@ class MacroTools
 					mapExpr(e, f);
 					for (c in catches)
 						mapExpr(c.expr, f);
-				
-				case EType(e, field):
-					mapExpr(e, f);
 					
 				case EUnop(op, postFix, e):
 					mapExpr(e, f);

@@ -224,7 +224,7 @@ class SWFRecorder {
 		_loader.addEventListener(flash.events.Event.RENDER, onSWFRender);
 	}
 	
-	function onSWFFrame(_) _window.stage.invalidate()
+	function onSWFFrame(_) _window.stage.invalidate();
 	
 	private function onSWFRender(_) : Void {
 		_window.stage.align = StageAlign.TOP_LEFT;

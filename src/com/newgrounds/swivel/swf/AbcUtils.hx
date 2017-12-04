@@ -33,25 +33,25 @@ class AbcUtils {
 	inline public static function opInt(abc : ABCData, v) : OpCode {
 		return
 			if(v < 32768) OInt(v);
-			else OIntRef( int(abc, haxe.Int32.ofInt(v)) );
+			else OIntRef( int(abc, v) );
 	}
 	
-	public static function int(abc : ABCData, v)								return lookup(abc.ints, v)
-	public static function uint(abc : ABCData, v)								return lookup(abc.uints, v)
-	public static function float(abc : ABCData, v : Float)						return lookup(abc.floats, v)
-	public static function string(abc : ABCData, v : String)					return lookup(abc.strings, v)
+	public static function int(abc : ABCData, v)								return lookup(abc.ints, v);
+	public static function uint(abc : ABCData, v)								return lookup(abc.uints, v);
+	public static function float(abc : ABCData, v : Float)						return lookup(abc.floats, v);
+	public static function string(abc : ABCData, v : String)					return lookup(abc.strings, v);
 	public static function pushString(abc : ABCData, v : String) : Index<String> {
 		abc.strings.push(v);
 		return Idx(abc.strings.length);
 	}
-	public static function name(abc : ABCData, v : Name)						return elookup(abc.names, v)
+	public static function name(abc : ABCData, v : Name)						return elookup(abc.names, v);
 	inline public static function pushName(abc : ABCData, v : Name) : IName {
 		abc.names.push(v);
 		return Idx(abc.names.length);
 	}
-	public static function publicName(abc : ABCData, v : String)				return elookup(abc.names, NName( string(abc, v), namespace(abc, NPublic(string(abc, ""))) ) )
-	public static function namespace(abc : ABCData, v : Namespace)				return elookup(abc.namespaces, v)
-	public static function namespaceSet(abc : ABCData, v : NamespaceSet)		return elookup(abc.nssets, v)
+	public static function publicName(abc : ABCData, v : String)				return elookup(abc.names, NName( string(abc, v), namespace(abc, NPublic(string(abc, ""))) ) );
+	public static function namespace(abc : ABCData, v : Namespace)				return elookup(abc.namespaces, v);
+	public static function namespaceSet(abc : ABCData, v : NamespaceSet)		return elookup(abc.nssets, v);
 	public static function methodType(abc : ABCData, v : MethodType)			{ abc.methodTypes.push(v); return Idx(abc.methodTypes.length - 1); }
 	public static function type(abc : ABCData, path) : Null<Index<Name>> {
 		if( path == "*" )
@@ -73,14 +73,14 @@ class AbcUtils {
 		abc.names[_i] = name;
 	}
 	
-	public static function getInt(abc : ABCData, i)								return abc.get(abc.ints, i)
-	public static function getUInt(abc : ABCData, i)							return abc.get(abc.uints, i)
-	public static function getFloat(abc : ABCData, i : Index<Float>)			return abc.get(abc.floats, i)
-	public static function getString(abc : ABCData, i : Index<String>)			return abc.get(abc.strings, i)
-	public static function getClass(abc : ABCData, i : Index<ClassDef>)			return abc.get(abc.classes, i)
-	public static function getName(abc : ABCData, i : IName)					return abc.get(abc.names, i)
-	public static function getNamespace(abc : ABCData, i : Index<Namespace>)	return abc.get(abc.namespaces, i)
-	public static function getNamespaceSet(abc : ABCData, i : Index<NamespaceSet>) return abc.get(abc.nssets, i)
+	public static function getInt(abc : ABCData, i)								return abc.get(abc.ints, i);
+	public static function getUInt(abc : ABCData, i)							return abc.get(abc.uints, i);
+	public static function getFloat(abc : ABCData, i : Index<Float>)			return abc.get(abc.floats, i);
+	public static function getString(abc : ABCData, i : Index<String>)			return abc.get(abc.strings, i);
+	public static function getClass(abc : ABCData, i : Index<ClassDef>)			return abc.get(abc.classes, i);
+	public static function getName(abc : ABCData, i : IName)					return abc.get(abc.names, i);
+	public static function getNamespace(abc : ABCData, i : Index<Namespace>)	return abc.get(abc.namespaces, i);
+	public static function getNamespaceSet(abc : ABCData, i : Index<NamespaceSet>) return abc.get(abc.nssets, i);
 	public static function getMethodType(abc : ABCData, i : Index<MethodType>)	{
 		return switch( i ) { case Idx(n): abc.methodTypes[n]; };
 	}
@@ -385,7 +385,7 @@ class AbcUtils {
 		
 		var dstCtor = getFunction(dst,dstCl.constructor);
 		var o = new BytesOutput();
-		format.abc.OpWriter.encode(o, [
+		encodeOps(o, [
 			OThis,
 			OCallPropVoid(consField.name, 0),
 			/*OThis,
@@ -534,7 +534,7 @@ class AbcUtils {
 			}
 		}
 		var o = new BytesOutput();
-		format.abc.OpWriter.encode(o, ops);
+		encodeOps(o, ops);
 		
 		var newF = {
 			type:		mergeMethodType(dst, src, srcF.type),
@@ -675,7 +675,7 @@ class AbcUtils {
 	public static function prependOps(f : Function, ops : Array<OpCode>) {
 		var oldLength = f.code.length;
 		var o = new haxe.io.BytesOutput();
-		OpWriter.encode(o, ops);
+		encodeOps(o, ops);
 		o.write(f.code);
 		f.code = o.getBytes();
 		var offset = f.code.length - oldLength;
@@ -689,8 +689,13 @@ class AbcUtils {
 	public static function appendOps(f : Function, ops : Array<OpCode>) {
 		var o = new haxe.io.BytesOutput();
 		o.writeBytes(f.code, 0, f.code.length-1);
-		OpWriter.encode(o, ops);
+		encodeOps(o, ops);
 		f.code = o.getBytes();
+	}
+	
+	public static function encodeOps( o : haxe.io.BytesOutput, ops : Array<OpCode> ) {
+		var opWriter = new OpWriter(o);
+		for( op in ops ) opWriter.write(op);
 	}
 	
 	public static function getClassPath(abc : ABCData, classPath : String) {
@@ -704,7 +709,10 @@ class AbcUtils {
 	
 	public static function quickMethod(abc : ABCData, cl : ClassDef, methodName : IName, ops : Array<OpCode>, ?kind : MethodKind, ?args : Null<Array<IName>>, ?ret : Null<IName>, ?isOverride : Bool = false) : Function {
 		var o = new haxe.io.BytesOutput();
-		OpWriter.encode(o, ops);
+		// MIKE NEW:
+		var opWriter = new OpWriter(o);
+		for(op in ops) opWriter.write(op);
+		
 		var f = {
 			type:		methodType(abc, { args : args == null ? [] : args, ret : ret, extra : null }),
 			nRegs:		if(args != null) args.length + 1 else 1,

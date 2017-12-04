@@ -2,6 +2,7 @@ package com.huey.utils;
 import flash.filesystem.File;
 import flash.filesystem.FileMode;
 import flash.filesystem.FileStream;
+import haxe.ds.StringMap;
 import haxe.macro.Expr;
 
 /**
@@ -18,7 +19,7 @@ class Logger {
 		return Logger.getInstance(name).get();
 	}
 	
-	private static var loggers : Hash<Logger> = new Hash();
+	private static var loggers : StringMap<Logger> = new StringMap();
 	inline public static function getInstance(name : String) {
 		var logger = loggers.get(name);
 		if(logger == null) {

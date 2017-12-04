@@ -12,7 +12,7 @@ interface UIBase {
 	
 }
 
-class Component extends Binding.Bindable, implements UIBase {
+class Component extends Binding.Bindable implements UIBase {
 	public var parent(default, null) : Container;
 	public var root(get_root, null) : Container;
 	private function get_root() {
@@ -70,12 +70,12 @@ class Component extends Binding.Bindable, implements UIBase {
 	}
 
 	public var width(get_width, set_width) : Float;
-	private function get_width() return _implComponent.width
-	private function set_width(v) return _implComponent.width = v
+	private function get_width() return _implComponent.width;
+	private function set_width(v) return _implComponent.width = v;
 	
 	public var height(get_height, set_height) : Float;
-	private function get_height() return _implComponent.height
-	private function set_height(v) return _implComponent.height = v
+	private function get_height() return _implComponent.height;
+	private function set_height(v) return _implComponent.height = v;
 	
 	
 	// ===== EVENTS =====

@@ -8,19 +8,19 @@ class Button extends StateContainer
 {
 	public var label : String;
 		
-	public var upState(default, setUpState) : Component;
-	public var overState(default, setOverState) : Component;
-	public var downState(default, setDownState) : Component;
+	public var upState(default, set) : Component;
+	public var overState(default, set) : Component;
+	public var downState(default, set) : Component;
 	
 	private var _isOver : Bool;
 
-	inline private function setUpState(v : Component) : Component {
+	inline private function set_upState(v : Component) : Component {
 		_states.set("up", []);
 		if(v != null) addToState(v, "up");
 		return upState = v;
 	}
 
-	inline private function setOverState(v : Component) : Component {
+	inline private function set_overState(v : Component) : Component {
 		if(v != null) {
 			_states.set("over", []);
 			addToState(v, "over");
@@ -28,7 +28,7 @@ class Button extends StateContainer
 		return overState = v;
 	}
 
-	inline private function setDownState(v : Component) : Component {
+	inline private function set_downState(v : Component) : Component {
 		if(v != null) {
 			_states.set("down", []);
 			addToState(v, "down");

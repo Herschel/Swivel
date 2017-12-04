@@ -7,7 +7,7 @@ package com.huey.ui;
 
 class Container extends Component
 {
-	public var numChildren(getNumChildren, never) : Int;
+	public var numChildren(get, never) : Int;
 
 	private var _children : List<Component>;
 	private var _implContainer : flash.display.Sprite;
@@ -42,7 +42,7 @@ class Container extends Component
 		_children.clear();
 	}
 	
-	private function getNumChildren() : Int {
+	private function get_numChildren() : Int {
 		return _children.length;
 	}
 	

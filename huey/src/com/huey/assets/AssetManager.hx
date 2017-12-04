@@ -1,5 +1,6 @@
 package com.huey.assets;
 import com.huey.events.Dispatcher;
+import haxe.ds.StringMap;
 
 /**
  * ...
@@ -10,20 +11,20 @@ class AssetManager
 {
 	private static var _instance : AssetManager;
 	
-	public static var instance(getInstance, null) : AssetManager;
+	public static var instance(get, null) : AssetManager;
 	
-	inline private static function getInstance() : AssetManager {
+	inline private static function get_instance() : AssetManager {
 		if (_instance == null) _instance = new AssetManager();
 		return _instance;
 	}
 	
 	public var onAssetsLoaded : Dispatcher<Dynamic>;
 	
-	private var _assets : Hash<Asset>;
+	private var _assets : StringMap<Asset>;
 	private var _loaderIterator : Iterator<Asset>;
 	
 	public function new() {
-		_assets = new Hash();
+		_assets = new StringMap();
 		onAssetsLoaded = new Dispatcher();
 	}
 	

@@ -6,8 +6,7 @@ package com.newgrounds.swivel.swf;
  */
 
 import format.swf.Data;
-import haxe.Int32;
-
+import haxe.ds.IntMap;
 using com.newgrounds.swivel.swf.AbcUtils;
 
 class ScaleFilterMutator implements ISWFMutator
@@ -17,16 +16,16 @@ class ScaleFilterMutator implements ISWFMutator
 	}
 
 	public var scale : Float;
-	private var _filteredClips : IntHash<Float>;
-	private var _maskClips : IntHash<Bool>;
+	private var _filteredClips : IntMap<Float>;
+	private var _maskClips : IntMap<Bool>;
 	private var _isAS3 : Bool;
 	
 	public function mutate(swf : SwivelSwf) {
 		_isAS3 = switch(swf.avmVersion) {
 			case AVM1:	false;
 			case AVM2:
-				_filteredClips = new IntHash();
-				_maskClips = new IntHash();
+				_filteredClips = new IntMap();
+				_maskClips = new IntMap();
 				true;
 		}
 		
@@ -54,7 +53,7 @@ class ScaleFilterMutator implements ISWFMutator
 	}
 	
 	private function tweakFilters(id : Int, tags : Array<SWFTag>) : Array<SWFTag> {
-		var curClips = new IntHash<Int>();
+		var curClips = new IntMap<Int>();
 		
 		for(i in 0...tags.length) {
 			var tag = tags[i];
@@ -74,30 +73,30 @@ class ScaleFilterMutator implements ISWFMutator
 							for (filter in po.filters) {
 								switch (filter) {
 									case FBlur(data):
-										data.blurX = Int32.ofInt( Std.int(Int32.toNativeInt(data.blurX) * scale) );
-										data.blurY = Int32.ofInt( Std.int(Int32.toNativeInt(data.blurY) * scale) );
+										data.blurX = Std.int(data.blurX * scale);
+										data.blurY = Std.int(data.blurY * scale);
 										//data.passes = 3;
-										margin = Math.max(margin, Int32.toNativeInt(data.blurX)/0x00010000+1);
-										margin = Math.max(margin, Int32.toNativeInt(data.blurY)/0x00010000+1);
+										margin = Math.max(margin, data.blurX/0x00010000+1);
+										margin = Math.max(margin, data.blurY/0x00010000+1);
 										
 									case FGradientGlow(data), FGradientBevel(data):
-										data.data.blurX = Int32.ofInt( Std.int(Int32.toNativeInt(data.data.blurX) * scale) );
-										data.data.blurY = Int32.ofInt( Std.int(Int32.toNativeInt(data.data.blurY) * scale) );
-										data.data.distance = Int32.ofInt( Std.int(Int32.toNativeInt(data.data.distance) * scale) );
+										data.data.blurX = Std.int(data.data.blurX * scale);
+										data.data.blurY = Std.int(data.data.blurY * scale);
+										data.data.distance = Std.int(data.data.distance * scale);
 										//data.data.flags.passes = 3;
-										var dist = Math.abs(Int32.toNativeInt(data.data.distance)/0x00010000) + 1;
-										margin = Math.max(margin, Int32.toNativeInt(data.data.blurX) + dist);
-										margin = Math.max(margin, Int32.toNativeInt(data.data.blurY) + dist);
+										var dist = Math.abs(data.data.distance/0x00010000) + 1;
+										margin = Math.max(margin, data.data.blurX + dist);
+										margin = Math.max(margin, data.data.blurY + dist);
 										
 									case FDropShadow(data), FGlow(data), FBevel(data):
-										data.blurX = Int32.ofInt( Std.int(Int32.toNativeInt(data.blurX) * scale) );
-										data.blurY = Int32.ofInt( Std.int(Int32.toNativeInt(data.blurY) * scale) );
-										data.distance = Int32.ofInt( Std.int(Int32.toNativeInt(data.distance) * scale) );
+										data.blurX = Std.int(data.blurX * scale);
+										data.blurY = Std.int(data.blurY * scale);
+										data.distance = Std.int(data.distance * scale);
 										//data.strength = Std.int(data.strength * scale);
 										//data.flags.passes = 3;
-										var dist = Math.abs(Int32.toNativeInt(data.distance)/0x00010000) + 1;
-										margin = Math.max(margin, Int32.toNativeInt(data.blurX)/0x00010000 + dist);
-										margin = Math.max(margin, Int32.toNativeInt(data.blurY)/0x00010000 + dist);
+										var dist = Math.abs(data.distance/0x00010000) + 1;
+										margin = Math.max(margin, data.blurX/0x00010000 + dist);
+										margin = Math.max(margin, data.blurY/0x00010000 + dist);
 										
 									default:
 								}
@@ -113,14 +112,14 @@ class ScaleFilterMutator implements ISWFMutator
 								data: com.newgrounds.swivel.swf.SwivelSwf.getAvm1Bytes([
 									APush( [PFloat(margin), PString("this")] ),
 									AEval,
-									APush( [PInt(haxe.Int32.ofInt(2)), PString("__createMask")] ),
+									APush( [PInt(2), PString("__createMask")] ),
 									ACall,
 									APop,
 								]),
 							} );
 						}
 					}
-
+					
 				default:
 			}
 		}

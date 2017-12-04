@@ -11,7 +11,7 @@ import haxe.Int32;
  */
 
  interface ISwivelConnection {
-	public var client(get_client, set_client) : Dynamic;
+	public var client(get, set) : Dynamic;
 	public function tick() : Void;
 	public function close() : Void;
  }
@@ -22,7 +22,7 @@ class SwivelConnection implements ISwivelConnection
 	
 	private var _inConnection : LocalConnection;
 	
-	public var client(get_client, set_client) : Dynamic;
+	public var client(get, set) : Dynamic;
 	private function get_client() : Dynamic				{ return _inConnection.client; }
 	private function set_client(v : Dynamic) : Dynamic	{ return _inConnection.client = v; }
 

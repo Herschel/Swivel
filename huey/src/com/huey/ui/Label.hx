@@ -18,7 +18,7 @@ class Label extends Component {
 	@forward(_implText) public var wordWrap : Bool;
 	
 	public var color(get_color, set_color) : Int;
-	private function get_color() return _textFormat.color
+	private function get_color() return _textFormat.color;
 	private function set_color(v) {
 		_textFormat.color = v;
 		updateTextFormat();
@@ -26,7 +26,7 @@ class Label extends Component {
 	}
 	
 	public var font(get_font, set_font) : String;
-	private function get_font() return _textFormat.font
+	private function get_font() return _textFormat.font;
 	private function set_font(v) {
 		_textFormat.font = v;
 		updateTextFormat();
@@ -34,7 +34,7 @@ class Label extends Component {
 	}
 	
 	public var size(get_size, set_size) : Float;
-	private function get_size() return _textFormat.size
+	private function get_size() return _textFormat.size;
 	private function set_size(v) {
 		_textFormat.size = v;
 		updateTextFormat();
@@ -42,7 +42,7 @@ class Label extends Component {
 	}
 	
 	public var bold(get_bold, set_bold) : Bool;
-	private function get_bold() return _textFormat.bold
+	private function get_bold() return _textFormat.bold;
 	private function set_bold(v) {
 		_textFormat.bold = v;
 		updateTextFormat();
@@ -50,7 +50,7 @@ class Label extends Component {
 	}
 	
 	public var editable(get_editable, set_editable) : Bool;
-	private function get_editable() return _implText.type == flash.text.TextFieldType.INPUT
+	private function get_editable() return _implText.type == flash.text.TextFieldType.INPUT;
 	private function set_editable(v) {
 		_implText.selectable = v;
 		_implText.type = v ? flash.text.TextFieldType.INPUT : flash.text.TextFieldType.DYNAMIC;
@@ -58,7 +58,7 @@ class Label extends Component {
 	}
 	
 	public var autoSize(get_autoSize, set_autoSize) : Bool;
-	private function get_autoSize() return _implText.autoSize != flash.text.TextFieldAutoSize.NONE
+	private function get_autoSize() return _implText.autoSize != flash.text.TextFieldAutoSize.NONE;
 	private function set_autoSize(v) {
 		_implText.autoSize = if(v) flash.text.TextFieldAutoSize.LEFT else flash.text.TextFieldAutoSize.NONE;
 		if(v == false) {
@@ -90,7 +90,7 @@ class Label extends Component {
 	}
 	
 	public var letterSpacing(get_letterSpacing, set_letterSpacing) : Float;
-	private function get_letterSpacing() return _textFormat.letterSpacing
+	private function get_letterSpacing() return _textFormat.letterSpacing;
 	private function set_letterSpacing(v) {
 		_textFormat.letterSpacing = v;
 		updateTextFormat();

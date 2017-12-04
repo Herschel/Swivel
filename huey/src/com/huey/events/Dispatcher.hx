@@ -8,8 +8,8 @@ class Dispatcher<T>
 {
 	private var _listeners : List<T -> Void>;
 	
-	public var numListeners(getNumListeners, null) : Int;
-	private function getNumListeners() : Int {
+	public var numListeners(get, null) : Int;
+	private function get_numListeners() : Int {
 		return _listeners.length;
 	}
 	

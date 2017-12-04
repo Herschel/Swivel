@@ -13,8 +13,8 @@ class NumericStepper extends Container {
 	public var onChange(default, null) : Dispatcher<UIEvent>;
 	public var onUserChange(default, null) : Dispatcher<UIEvent>;
 	
-	@bindable public var value(default, setValue) : Float;
-	private function setValue(v : Float) : Float {
+	@bindable public var value(default, set) : Float;
+	private function set_value(v : Float) : Float {
 		value = v;
 		if(Math.isNaN(value)) value = 0;
 		
@@ -37,14 +37,14 @@ class NumericStepper extends Container {
 		maximum = Math.POSITIVE_INFINITY;
 	}
 
-	public var textX(default, setTextX) : Float;
-	private function setTextX(v : Float) : Float { return _textBox.x = v; }
+	public var textX(default, set) : Float;
+	private function set_textX(v : Float) : Float { return _textBox.x = v; }
 	
-	public var textY(default, setTextY) : Float;
-	private function setTextY(v : Float) : Float { return _textBox.y = v; }
+	public var textY(default, set) : Float;
+	private function set_textY(v : Float) : Float { return _textBox.y = v; }
 	
-	public var _textBox(default, set_textBox) : TextBox;
-	private function set_textBox(v) {
+	public var _textBox(default, set) : TextBox;
+	private function set__textBox(v) {
 		_textBox = v;
 		_textBox.onUserEdited.add(function(_) { value = Std.parseFloat(_textBox.text); onUserChange.dispatch({source: this});});
 		value = value;
@@ -53,13 +53,13 @@ class NumericStepper extends Container {
 		return _textBox;
 	}
 
-	public var incButton(default, set_incButton) : Button;
+	public var incButton(default, set) : Button;
 	private function set_incButton(v : Button) : Button {
 		add(v);
 		v.onClick.add(function(_) {value+=step; onUserChange.dispatch({source: this});} );
 		return incButton = v;
 	}
-	public var decButton(default, set_decButton) : Button;
+	public var decButton(default, set) : Button;
 	private function set_decButton(v : Button) : Button {
 		add(v);
 		v.onClick.add(function(_) {value-=step; onUserChange.dispatch({source: this});} );

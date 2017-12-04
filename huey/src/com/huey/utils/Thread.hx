@@ -18,8 +18,8 @@ class Thread {
 		return thread;
 	}
 
-	public static var current(getCurrentThread, null) : Thread;
-	private static function getCurrentThread() : Thread {
+	public static var current(get, null) : Thread;
+	private static function get_current() : Thread {
 		if(current == null) {
 			current = new Thread(Worker.current);
 		}

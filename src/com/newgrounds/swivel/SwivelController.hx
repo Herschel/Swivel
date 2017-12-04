@@ -25,7 +25,7 @@ import com.newgrounds.swivel.swf.SwivelConnection.ISwivelConnection;
 @:autoBuild(com.huey.macros.Macros.build())
 interface ControllerBase { }
 
-class SwivelController extends com.huey.binding.Binding.Bindable, implements ControllerBase {
+class SwivelController extends com.huey.binding.Binding.Bindable implements ControllerBase {
 	public var onProgress(default, null)		: Dispatcher<SwivelProgressEvent>;
 	public var onStateChange(default, null) 	: Dispatcher<Dynamic>;
 	public var onComplete(default, null)		: Dispatcher<Dynamic>;

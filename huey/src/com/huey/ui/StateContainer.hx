@@ -1,4 +1,5 @@
 package com.huey.ui;
+import haxe.ds.StringMap;
 
 /**
  * ...
@@ -6,8 +7,8 @@ package com.huey.ui;
  */
 
 class StateContainer extends Container {
-	public var state(default, setState) : String;
-	private function setState(v : String) : String {
+	public var state(default, set) : String;
+	private function set_state(v : String) : String {
 		var oldState = _states.get(state);
 		if (oldState != null) {
 			for(child in oldState)
@@ -23,7 +24,7 @@ class StateContainer extends Container {
 	}
 	
 	
-	private var _states : Hash<UIState>;
+	private var _states : StringMap<UIState>;
 	
 	public function addToState(component : Component, state : String) : Void {
 		if (!_states.exists(state)) _states.set(state, new UIState());
@@ -34,7 +35,7 @@ class StateContainer extends Container {
 
 	public function new() {
 		super();
-		_states = new Hash();
+		_states = new StringMap();
 	}
 }
 

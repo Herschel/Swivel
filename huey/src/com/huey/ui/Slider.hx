@@ -6,8 +6,8 @@ package com.huey.ui;
  */
 
 class Slider extends Container {
-	@bindable public var value(default, setValue) : Float;
-	private function setValue(v : Float) : Float {
+	@bindable public var value(default, set) : Float;
+	private function set_value(v : Float) : Float {
 		if (step != 0) v = Math.round(v / step) * step;
 		if (v < minimum) v = minimum;
 		if (v > maximum) v = maximum;
@@ -17,25 +17,25 @@ class Slider extends Container {
 		return value;
 	}
 	
-	public var minimum(default, setMinimum) : Float;
-	private inline function setMinimum(v : Float) : Float {
+	public var minimum(default, set) : Float;
+	private inline function set_minimum(v : Float) : Float {
 		minimum = v;
-		setValue( value );
+		set_value( value );
 		return minimum;
 	}
 	
-	public var maximum(default, setMaximum) : Float;
-	private inline function setMaximum(v : Float) : Float {
+	public var maximum(default, set) : Float;
+	private inline function set_maximum(v : Float) : Float {
 		maximum = v;
-		setValue( value );
+		set_value( value );
 		return maximum;
 	}
 	
-	public var step(default, setStep) : Float;
-	private inline function setStep(v : Float) : Float {
+	public var step(default, set) : Float;
+	private inline function set_step(v : Float) : Float {
 		if (v < 0 || Math.isNaN(v)) v = 0;
 		step = v;
-		setValue( value );
+		set_value( value );
 		return step;
 	}
 	
@@ -51,8 +51,8 @@ class Slider extends Container {
 	
 	public var label : Label;
 	
-	public var labelFunc(default, setLabelFunc) : Float -> String;
-	private function setLabelFunc(v) {
+	public var labelFunc(default, set) : Float -> String;
+	private function set_labelFunc(v) {
 		labelFunc = v;
 		label.text = if (labelFunc != null) labelFunc(value) else Std.string(value);
 		return labelFunc;

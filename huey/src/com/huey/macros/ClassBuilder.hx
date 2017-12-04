@@ -1,4 +1,5 @@
 package com.huey.macros;
+import haxe.ds.StringMap;
 import haxe.macro.Context;
 import haxe.macro.Expr;
 import haxe.macro.Type;
@@ -24,14 +25,14 @@ class ClassBuilder
 		return builder;
 	}
 	
-	public var _fields : Hash<FieldInfo>;
+	public var _fields : StringMap<FieldInfo>;
 	public var name(default, null) : String;
 	public var fullClassPath(default, null) : String;
 	public var meta : Metadata;
  
 	public function new() {
 		// TODO: name etc.
-		_fields = new Hash();
+		_fields = new StringMap();
 		meta = [];
 	}
 	

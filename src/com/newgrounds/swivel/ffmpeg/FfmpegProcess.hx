@@ -119,7 +119,7 @@ class FfmpegProcess
 class FfmpegEncoder extends FfmpegProcess
 {
 	
-	public inline static var AUDIO_CODECS : Array<AudioCodec> = [
+	public static var AUDIO_CODECS : Array<AudioCodec> = [
 		{label: "AAC", codec: "aac", supportsBitRate: true},
 		{label: "Raw PCM 16-bit", codec: "pcm_s16le", supportsBitRate: false},
 		{label: "MP3", codec: "mp3", supportsBitRate: true},
@@ -127,7 +127,7 @@ class FfmpegEncoder extends FfmpegProcess
 		{label: "Windows Media Audio", codec: "wmav2", supportsBitRate: true},
 	];
 	
-	public inline static var PRESETS : Array<VideoPreset> = [
+	public static var PRESETS : Array<VideoPreset> = [
 		{label: "H.264 High", fileFormat: "mp4", codec: "libx264", supportsBitRate: true, extraParameters: ["-preset","slow"], supportedAudioCodecs: [AUDIO_CODECS[0], AUDIO_CODECS[2]]},
 		{label: "H.264 Main", fileFormat: "mp4", codec: "libx264", supportsBitRate: true, extraParameters: ["-preset","slow","-profile:v","main"], supportedAudioCodecs: [AUDIO_CODECS[0], AUDIO_CODECS[2]]},
 		{label: "H.264 Baseline", fileFormat: "mp4", codec: "libx264", supportsBitRate: true, extraParameters: ["-preset","slow","-profile:v","baseline"], supportedAudioCodecs: [AUDIO_CODECS[0], AUDIO_CODECS[2]]},
@@ -139,7 +139,7 @@ class FfmpegEncoder extends FfmpegProcess
 		{label: "Windows Media Video", fileFormat: "wmv", codec: "wmv2", supportsBitRate: true, extraParameters: ["-preset","slow"], supportedAudioCodecs: [AUDIO_CODECS[4]]},
 		{label: "Xvid (MPEG-4 part 2)", fileFormat: "mp4", codec: "mpeg4", supportsBitRate: true, extraParameters: ["-preset","slow"], supportedAudioCodecs: [AUDIO_CODECS[0], AUDIO_CODECS[2]]},
 	];
-	public inline static var TRANSPARENT_PRESETS : Array<VideoPreset> = [
+	public static var TRANSPARENT_PRESETS : Array<VideoPreset> = [
 		PRESETS[3],
 	];
 	//private var _proc : FfmpegProcess;

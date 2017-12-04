@@ -7,30 +7,30 @@ package com.huey.ui;
 
 class CheckBox extends Button
 {
-	@bindable public var selected(default, setSelected) : Bool;
-	private function setSelected(v : Bool) : Bool {
+	@bindable public var selected(default, set) : Bool;
+	private function set_selected(v : Bool) : Bool {
 		selected = v;
 		updateState();
 		return selected;
 	}
 
-	public var selectedUpState(default, setSelectedUpState) : Component;
-	public var selectedOverState(default, setSelectedOverState) : Component;
-	public var selectedDownState(default, setSelectedDownState) : Component;
+	public var selectedUpState(default, set) : Component;
+	public var selectedOverState(default, set) : Component;
+	public var selectedDownState(default, set) : Component;
 
-	inline private function setSelectedUpState(v : Component) : Component {
+	inline private function set_selectedUpState(v : Component) : Component {
 		if(v != null)
 			_states.set("selectedUp", [v]);
 		return v;
 	}
 
-	inline private function setSelectedOverState(v : Component) : Component {
+	inline private function set_selectedOverState(v : Component) : Component {
 		if(v != null)
 			_states.set("selectedOver", [v]);
 		return v;
 	}
 
-	inline private function setSelectedDownState(v : Component) : Component {
+	inline private function set_selectedDownState(v : Component) : Component {
 		if(v != null)
 			_states.set("selectedDown", [v]);
 		return v;

@@ -41,9 +41,9 @@ class Macros
 			}
 			
 			// transform into property
-			var getterName = "__get_" + field.name;
-			var setterName = if (meta.params.length < 2) "__set_" + field.name else "null";
-			field.kind = FProp(getterName, setterName, type);
+			var getterName = "get_" + field.name;
+			var setterName = if (meta.params.length < 2) "set_" + field.name else null;
+			field.kind = FProp("get", if( setterName != null ) setterName else "null", type);
 			
 			meta.params = [];
 			
@@ -58,7 +58,7 @@ class Macros
 			} );
 			cl.addField(getter);
 			
-			if(setterName != "null") {
+			if(setterName != null) {
 				var setter = new FieldInfo(setterName);
 				setter.pos = meta.pos;
 				setter.access = [APrivate, AInline];

@@ -161,8 +161,8 @@ class ListBox extends Container {
 		}
 	}
 
-	public var items(default, setItems) : Array<Dynamic>;
-	private function setItems( v : Array<Dynamic> ) : Array<Dynamic> {
+	public var items(default, set) : Array<Dynamic>;
+	private function set_items( v : Array<Dynamic> ) : Array<Dynamic> {
 		for (item in _items)
 			_itemContainer.remove(item.label);
 		

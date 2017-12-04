@@ -26,7 +26,7 @@ class ApplicationMacros
 			}
 		}
 
-		var appClass = cl.name; // MIKE: Why doesn't fullClassPath work here?
+		var appClass = {pack: [], name: cl.name}; // MIKE: Why doesn't fullClassPath work here?
 		var field = new FieldInfo("main");
 		field.pos = Context.currentPos();
 		field.access = [AStatic, APublic];
@@ -53,10 +53,11 @@ class ApplicationMacros
 		});
 		cl.addField(field);
 		
+		var time = Date.now().getTime();
 		field = new FieldInfo("BUILD_TIME");
 		field.pos = Context.currentPos();
-		field.access = [AStatic, APublic, AInline];
-		field.kind = FVar(null, macro Date.now());
+		field.access = [AStatic, APublic];
+		field.kind = FVar(null, macro Date.fromTime($v{time}));
 		cl.addField(field);
 		
 		if(cl.getMeta(":version") != null) {
