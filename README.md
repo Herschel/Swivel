@@ -1,11 +1,18 @@
-# Swivel
+# ![Swivel](https://www.newgrounds.com/imgs/swivel/logo.png)
 
 Converts Adobe Flash SWF files to video.
+
+## Binaries
+
+The latest stable release of Swivel can be found at <https://www.newgrounds.com/wiki/creator-resources/flash-resources/swivel?path=/wiki/creator-resources/flash-resources/swivel>.
 
 ## Building from source
 
 Swivel is built using the [Haxe](http://www.haxe.org) programming language.
 Run `haxe Swivel.hxml` to build, then run `PackageApp.bat` to package the app.
+
+The current source will have regressions from the binary release on Newgrounds;
+I'm trying to get everything working again!
 
 ## License
 
