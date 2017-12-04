@@ -3,8 +3,8 @@ com.newgrounds.swivel.Swivel
 -cp src
 -cp huey/src
 -cp huey/test
+-cp lib/format
 -lib air3
--lib format:3.3.0
 -main com.newgrounds.swivel.Swivel
 -swf bin/Swivel.swf
 -swf-header 930:590:30

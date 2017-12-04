@@ -17,6 +17,7 @@
   <classpaths>
     <class path="src" />
     <class path="huey\src" />
+    <class path="lib\format" />
   </classpaths>
   <!-- Build options -->
   <build>
@@ -30,7 +31,6 @@
   <!-- haxelib libraries -->
   <haxelib>
     <library name="air3" />
-    <library name="format:3.3.0" />
   </haxelib>
   <!-- Class files to compile (other referenced classes will automatically be included) -->
   <compileTargets>
