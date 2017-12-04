@@ -18,7 +18,7 @@ class SilenceSoundMutator implements ISWFMutator
 	
 	private function removeSounds(tag : SWFTag) : SWFTag {
 		switch(tag) {
-			case TStartSound(_,_), TSoundStream(_), TSoundStreamData(_):
+			case TStartSound(_,_), TSoundStream(_), TSoundStreamBlock(_):
 				return null;
 			default:
 				return tag;

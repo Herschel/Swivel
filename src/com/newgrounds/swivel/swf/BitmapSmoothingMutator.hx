@@ -33,13 +33,27 @@ class BitmapSmoothingMutator implements ISWFMutator
 
 	private function forceBitmapSmoothing( tag : SWFTag ) : SWFTag {
 		switch(tag) {
-			case TShape(shape):
-				setSmoothInStyles( shape.styles.fillStyles );
+			case TShape(id, SHDShape1(_, data)) |
+				TShape(id, SHDShape2(_, data)) |
+				TShape(id, SHDShape3(_, data)):
+				setSmoothInStyles( data.fillStyles );
 				
-				for(sr in shape.shapeRecords) {
+				for(sr in data.shapeRecords) {
 					switch(sr) {
-						case SRStyleChange(s):
-							if(s.newStyles != null) setSmoothInStyles( s.newStyles.fillStyles );
+						case SHRChange((change)):
+							if((change).newStyles != null) setSmoothInStyles( change.newStyles.fillStyles );
+
+						default:
+					}
+				}
+				
+			case TShape(id, SHDShape4(data)):
+				setSmoothInStyles( data.shapes.fillStyles );
+				
+				for(sr in data.shapes.shapeRecords) {
+					switch(sr) {
+						case SHRChange(change):
+							if(change.newStyles != null) setSmoothInStyles( change.newStyles.fillStyles );
 
 						default:
 					}

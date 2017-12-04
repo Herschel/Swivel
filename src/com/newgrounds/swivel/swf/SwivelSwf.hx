@@ -38,40 +38,39 @@ class SwivelSwf {
 		
 		if(version < 9 && Type.enumEq(v, AVM2)) throw("AVM2 requires SWF version 9 or higher");
 		
-		var infos = switch(_headerTags[_fileAttributesIndex]) {
-			case TSandBox(infos): infos;
-			default: throw("Unexpected tag"); 0;
+		// MIKNEW
+		_headerTags[_fileAttributesIndex] = switch(_headerTags[_fileAttributesIndex]) {
+			case TSandBox(useDirectBlit, useGpu, hasMeta, useAs3, useNetwork):
+				TSandBox(useDirectBlit, useGpu, hasMeta, v == AVM2, useNetwork);
+			default: throw("Unexpected tag");
 		}
-
-		infos &= ~(8);
-		if( v == AVM2 ) infos |= 8;
-		_headerTags[_fileAttributesIndex] = TSandBox(infos);
+		
 		return avmVersion = v;
 	}
 	
 	public var abcData(default, null) : ABCData;
 
-	public var compression(getCompression, setCompression) : SWFCompression;
-	inline private function getCompression()				{ return _header.compression; }
-	inline private function setCompression(v)				{ return _header.compression = v; }
+	public var compression(get, set) : SWFCompression;
+	inline private function get_compression()				{ return _header.compression; }
+	inline private function set_compression(v)				{ return _header.compression = v; }
 	
-	public var width(getWidth, setWidth) : Int;
-	inline private function getWidth()						{ return _header.width; }
-	inline private function setWidth(v)	 					{ return _header.width = v; }
+	public var width(get, set) : Int;
+	inline private function get_width()						{ return _header.width; }
+	inline private function set_width(v)	 				{ return _header.width = v; }
 	
-	public var height(getHeight, setHeight) : Int;
-	inline private function getHeight()						{ return _header.height; }
-	inline private function setHeight(v)					{ return _header.height = v; }
+	public var height(get, set) : Int;
+	inline private function get_height()					{ return _header.height; }
+	inline private function set_height(v)					{ return _header.height = v; }
 	
-	public var frameRate(getFrameRate, setFrameRate) : Float;
-	inline private function getFrameRate()					{ return _header.fps; }
-	inline private function setFrameRate(v)					{ return _header.fps = v; }
+	public var frameRate(get, set) : Float;
+	inline private function get_frameRate()					{ return _header.fps / 256.0; }
+	inline private function set_frameRate(v : Float)				{ _header.fps = Std.int(v * 256.0); return v;  }
 	
-	@:isVar public var backgroundColor(getBackgroundColor, setBackgroundColor) : Int;
-	inline private function getBackgroundColor()			{ return backgroundColor; }
-	inline private function setBackgroundColor(v)			{ return backgroundColor = v; }
+	@:isVar public var backgroundColor(get, set) : Int;
+	inline private function get_backgroundColor()			{ return backgroundColor; }
+	inline private function set_backgroundColor(v)			{ return backgroundColor = v; }
 	
-	@bindable public var numFrames(default, set_numFrames) : Int;
+	@bindable public var numFrames(default, set) : Int;
 	inline private function set_numFrames(v)				{ return numFrames = _header.nframes = v; }
 	
 	private var _header : SWFHeader;
@@ -95,9 +94,9 @@ class SwivelSwf {
 		var i = 0;
 		for (t in _headerTags) {
 			switch(t) {
-				case TSandBox(infos):
+				case TSandBox(_, _, _, useAs3, _): // MIKENEW
 					_fileAttributesIndex = i;
-					avmVersion = if(infos & 8 != 0) AVM2 else AVM1;
+					avmVersion = if(useAs3) AVM2 else AVM1;
 
 				case TBackgroundColor(color):
 					backgroundColor = color;

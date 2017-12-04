@@ -3,24 +3,24 @@ import com.huey.events.Dispatcher;
 import com.huey.macros.ClassBuilder;
 import com.huey.macros.FieldInfo;
 import com.huey.macros.MacroTools;
+import haxe.ds.StringMap;
 import haxe.macro.Context;
 import haxe.macro.Expr;
+using Lambda;
 
 typedef BindingInstance = Void -> Void;
 
 typedef BindingsList = List<BindingInstance>;
 
-using Lambda;
-
 // RUN-TIME BINDING MANAGEMENT
 @:autoBuild(com.huey.binding.Binding.bindable())
 class Bindable
 {
-	private var __bindings : Hash<BindingsList>;
+	private var __bindings : StringMap<BindingsList>;
 	private var __distpatching : Bool;
 	
 	public function new() {
-		__bindings = new Hash();
+		__bindings = new StringMap();
 		__distpatching = false;
 	}
 	
@@ -71,7 +71,7 @@ class Binding {
 	
 	private static var _cl : ClassBuilder;
 	
-	@:macro public static function bindable() : Array<Field> {
+	macro public static function bindable() : Array<Field> {
 		_cl = ClassBuilder.createFromContext();
 
 		for(field in _cl.getFieldsWithMeta("bindable"))
@@ -83,7 +83,7 @@ class Binding {
 	/** Adds binding dispatches to fields, so that the field can be bound to. */
 	private static function makeFieldBindable(field : FieldInfo) : Void {
 		var pos = Context.currentPos();
-	
+		
 		// add event dispatcher
 		var setterField : FieldInfo;
 		var fieldNameString = {expr:EConst(CString(field.name)), pos: Context.currentPos()};
@@ -128,7 +128,7 @@ class Binding {
 						}
 					}
 
-					var setter = _cl.getField(set);
+					var setter = _cl.getField('set_${field.name}'); // MIKNEW
 					switch(setter.kind) {
 						case FFun(f):
 							com.huey.macros.MacroTools.mapExpr(f.expr, injectNotify);
@@ -137,7 +137,7 @@ class Binding {
 				}
 
 			default:
-				Context.error(Std.format("${field.kind} can not be bindable"), pos);
+				Context.error('${field.kind} can not be bindable', pos);
 		}
 	}
 	
@@ -166,8 +166,8 @@ class Binding {
 	#end
 		
 	/** COMPILE-TIME BINDING GENERATION */
-	#if !macro @:macro #end
-	public static function bind<T>(dst : ExprRequire<T>, src : ExprRequire<T>) : ExprRequire<Void> {
+	#if !macro macro #end
+	public static function bind<T>(dst : ExprOf<T>, src : ExprOf<T>) : ExprOf<Void> {
 		// determine binding dependencies
 		var dependencies = [];
 		var localVars = [];
@@ -263,7 +263,7 @@ class Binding {
 		};
 	}
 
-	@:macro public static function bindTwoWay<T>(dst : ExprRequire<T>, src : ExprRequire<T>) : ExprRequire<Void> {
+	macro public static function bindTwoWay<T>(dst : ExprOf<T>, src : ExprOf<T>) : ExprOf<Void> {
 		return { expr: EBlock([Binding.bind(dst, src), Binding.bind(src, dst)]), pos: Context.currentPos() };
 	}
 

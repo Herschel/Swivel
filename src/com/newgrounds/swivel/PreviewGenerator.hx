@@ -31,7 +31,7 @@ class PreviewGenerator {
 		stop();
 		
 		var previewSwf = swf.clone();
-		previewSwf.compression = CUncompressed;
+		previewSwf.compression = SCUncompressed;
 		swf.prepend(SwfUtils.getAs2Tag("AS2Basics", {width: swf.width, height: swf.height, frameRate: swf.frameRate}));
 		if(swf.version < 5) swf.version = 5;
 		previewSwf.avmVersion = AVM1;	// TODO: allow AS3 support
@@ -44,7 +44,7 @@ class PreviewGenerator {
 					AGotoFrame(frame+1),
 					AStop,
 					AStopSounds,
-					APush( [PString("__swivelInit"), PInt(haxe.Int32.ofInt(1))] ),
+					APush( [PString("__swivelInit"), PInt(1)] ),
 					ASet,
 				] ) ) );
 				previewSwf.prepend( TShowFrame );

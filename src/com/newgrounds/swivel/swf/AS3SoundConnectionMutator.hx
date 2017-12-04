@@ -14,18 +14,19 @@ import format.abc.OpReader;
 import format.as1.Data;
 import format.swf.Data;
 import haxe.Int32;
+import haxe.ds.IntMap;
 import haxe.io.Bytes;
 import haxe.io.BytesInput;
 import haxe.io.BytesOutput;
 
 using com.newgrounds.swivel.swf.AbcUtils;
 
-typedef ClipFrameSounds = IntHash< Array<SoundLogEntry> >;
+typedef ClipFrameSounds = IntMap< Array<SoundLogEntry> >;
 
 class AS3SoundConnectionMutator extends SoundConnectionMutator {
 	public function new(connectionName : String, audioTracker : AudioTracker) {
 		super(connectionName, audioTracker);
-		_clipsWithSound = new IntHash();
+		_clipsWithSound = new IntMap();
 	}
 	
 	override public function mutate(swf : SwivelSwf) : Void {
@@ -60,9 +61,9 @@ class AS3SoundConnectionMutator extends SoundConnectionMutator {
 		super.mutate(swf);
 	}
 	
-	private var _clipsWithSound : IntHash<ClipFrameSounds>;
+	private var _clipsWithSound : IntMap<ClipFrameSounds>;
 	
-	override private function handleStartSound(clipId : Int, frame : Int, soundId : Int, infos : SoundInfo) : SWFTag {
+	override private function handleStartSound(clipId : Int, frame : Int, soundId : Int, infos : StartSoundInfo) : SWFTag {
 		var sounds = getClip(clipId, frame);
 		sounds.push({
 			frame: frame,
@@ -85,7 +86,7 @@ class AS3SoundConnectionMutator extends SoundConnectionMutator {
 	private function getClip(id : Int, frame : Int) : Array<SoundLogEntry> {
 		var sounds = _clipsWithSound.get(id);
 		if(sounds == null) {
-			sounds = new IntHash();
+			sounds = new IntMap();
 			_clipsWithSound.set(id, sounds);
 		}
 		
@@ -124,7 +125,7 @@ class AS3SoundConnectionMutator extends SoundConnectionMutator {
 		var swivelName = abc.publicName("__swivel");
 		//var traceName = abc.publicName("trace");
 		
-		var oldFrameScripts = new IntHash<Function>();
+		var oldFrameScripts = new IntMap<Function>();
 		for(f in cl.fields) {
 			var name = abc.getName(f.name);
 			switch(name) {
@@ -191,20 +192,20 @@ class AS3SoundConnectionMutator extends SoundConnectionMutator {
 							OGetLex( swivelClName ),
 							OString( startSoundStr ),
 							OGetLex( swivelClName ),
-							OGetProp( frameName ), // movie frame
-							OInt(soundId), // sound id
-							OInt(Type.enumIndex(info.sync)), // sync
-							if(info.inPoint != null) abc.opInt(Int32.toNativeInt(info.inPoint)) else ONull, // inPoint
-							if(info.outPoint != null) abc.opInt(Int32.toNativeInt(info.outPoint)) else ONull, // outPoint
-							OInt(info.loops), // loops
+							OGetProp( frameName ),
+							OInt(soundId),
+							OInt(if(info.noMultiple) 1 else if(info.stop) 2 else 0),
+							if(info.startPos!= null) abc.opInt(info.startPos) else ONull,
+							if(info.endPos != null) abc.opInt(info.endPos) else ONull,
+							if(info.numLoops != null) abc.opInt(info.numLoops) else ONull,
 						]);
 						
 						if(info.envelope != null) {
 							for(p in info.envelope) {
 								methodOps = methodOps.concat([
-									abc.opInt(Int32.toNativeInt(p.position)),
-									abc.opInt(p.leftLevel),
-									abc.opInt(p.rightLevel),
+									abc.opInt(p.pos),
+									abc.opInt(p.leftVolume),
+									abc.opInt(p.rightVolume),
 								]);
 							}
 							methodOps.push(OArray(info.envelope.length * 3));

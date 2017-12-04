@@ -21,7 +21,7 @@ class SwivelMutator implements ISWFMutator
 	}
 	
 	public function mutate(swf : SwivelSwf) : Void {
-		swf.compression = CUncompressed;
+		swf.compression = SCUncompressed;
 
 		// Set our SWF version is at least version 6 so that our various AS will work
 		// (maybe this could break some things, since AS2 is case-sensitive, but AS1 isn't?)

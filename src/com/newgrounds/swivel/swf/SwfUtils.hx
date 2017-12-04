@@ -2,6 +2,7 @@ package com.newgrounds.swivel.swf;
 import format.abc.Data;
 import format.as1.Data;
 import format.swf.Data;
+import haxe.ds.IntMap;
 import haxe.io.BytesInput;
 import haxe.io.BytesOutput;
 import haxe.Resource;
@@ -14,7 +15,7 @@ import haxe.macro.Expr;
 
 class SwfUtils
 {
-	@:macro public static function getAs2Tag(resourceName, ?params) {
+	macro public static function getAs2Tag(resourceName, ?params) {
 		var name = switch(resourceName.expr) {
 			case EConst(c):
 				switch(c) {
@@ -27,7 +28,7 @@ class SwfUtils
 		return macro com.newgrounds.swivel.swf.SwfUtils._getAs2Tag($resourceName, $params);
 	}
 	
-	@:macro public static function getAs3Tag(resourceName, ?i) {
+	macro public static function getAs3Tag(resourceName, ?i) {
 		var name = switch(resourceName.expr) {
 			case EConst(c):
 				switch(c) {
@@ -40,7 +41,7 @@ class SwfUtils
 		return macro com.newgrounds.swivel.swf.SwfUtils._getAs3Tag($resourceName, $i);
 	}
 	
-	@:macro public static function getClip(resourceName, clipName) {
+	macro public static function getClip(resourceName, clipName) {
 		var name = switch(resourceName.expr) {
 			case EConst(c):
 				switch(c) {
@@ -92,9 +93,9 @@ class SwfUtils
 		throw("AS2 Data not found in " + resourceName);
 	}
 	
-	private static function _getClip(resourceName : String, clipName : String) : SWFTag {
+	public static function _getClip(resourceName : String, clipName : String) : SWFTag {
 		var swf = getSwf(resourceName);
-		var clips = new IntHash<SWFTag>();
+		var clips = new IntMap<SWFTag>();
 		
 		for(tag in swf.tags) {
 			switch(tag) {
@@ -113,7 +114,7 @@ class SwfUtils
 		return null;
 	}
 	
-	private static function _getAs3Tag(resourceName : String, ?i : Int = 0)  {
+	public static function _getAs3Tag(resourceName : String, ?i : Int = 0)  {
 		var swf = getSwf(resourceName);
 		for(tag in swf.tags) {
 			switch(tag) {

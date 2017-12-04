@@ -4,6 +4,8 @@ import com.huey.events.Dispatcher;
 import com.huey.utils.Logger;
 import flash.filesystem.FileStream;
 import haxe.Int32;
+import haxe.ds.IntMap;
+import haxe.ds.StringMap;
 import haxe.io.Bytes;
 import haxe.io.BytesInput;
 import haxe.io.BytesOutput;
@@ -23,30 +25,31 @@ class AudioTracker
 	public var onMixingComplete : Dispatcher<Dynamic>;
 		
 	private var _sounds : List<SoundClip>;
-	private var _eventSounds : IntHash<SoundClip>;
-	private var _streamSounds : IntHash<SoundClip>;
-	private var _asSounds : Hash<SoundClip>;
+	private var _eventSounds : IntMap<SoundClip>;
+	private var _streamSounds : IntMap<SoundClip>;
+	private var _asSounds : StringMap<SoundClip>;
+	private var _decodeIterator : Iterator<SoundClip>;
 	
 	private var _soundLog : Array<SoundLogEntry>;
-	private var _activeStreams : IntHash<SoundLogEntry>;
+	private var _activeStreams : IntMap<SoundLogEntry>;
 	
 	private var _soundInstances : List<SoundInstance>;
 	private var _asSoundInstances : List<ActionScriptSoundInstance>;
-	private var _as2Transforms : IntHash<SoundTransform>;
+	private var _as2Transforms : IntMap<SoundTransform>;
 	private var _globalTransform : SoundTransform;
 	public function new() {
 		_sounds = new List();
 		
-		_eventSounds = new IntHash();
-		_streamSounds = new IntHash();
-		_asSounds = new Hash();
+		_eventSounds = new IntMap();
+		_streamSounds = new IntMap();
+		_asSounds = new StringMap();
 		
 		_soundLog = new Array();
-		_activeStreams = new IntHash();
+		_activeStreams = new IntMap();
 		
 		_soundInstances = new List();
 		_asSoundInstances = new List();
-		_as2Transforms = new IntHash();
+		_as2Transforms = new IntMap();
 		_globalTransform = {
 			volume:			1.0,
 			leftToLeft:		1.0,
@@ -83,33 +86,39 @@ class AudioTracker
 	}
 
 	public function decodeSounds() {
-		var decoder : Decoder;
-		var clipIterator = _sounds.iterator();
-		function decodeNextSound() {
-			var clip = clipIterator.next();
-			if(clip != null) {
-				decoder = new Decoder(clip);
-				switch(clip.id) {
-					//case SoundClipId.actionScript(_):
-//						decodeNextSound();
-					default:
-					decoder.onComplete.add( function(e) decodeNextSound() );
-					decoder.start();
-				}
-			} else onSoundsDecoded.dispatch();
-		}
-
+		_decodeIterator = _sounds.iterator();
 		decodeNextSound();
 	}
+	
+	function decodeNextSound() {
+		if (_decodeIterator.hasNext()) {
+			var clip = _decodeIterator.next();
+			var decoder = new Decoder(clip);
+			switch(clip.id) {
+				//case SoundClipId.actionScript(_):
+//						decodeNextSound();
+				default:
+				decoder.onComplete.add( function(e) decodeNextSound() );
+				decoder.start();
+			}
+		} else {
+			_decodeIterator = null;
+			onSoundsDecoded.dispatch();
+		}
+	}
 
-	private function startSoundHandler(frame : Int, soundId : Int, sync : Int, ?inPoint : Int32, ?outPoint : Int32, ?loops : Int, ?envelopeData : Array<Dynamic>) : Void {
+	private function startSoundHandler(frame : Int, soundId : Int, sync : Int, ?startPos : Int32, ?endPos: Int32, ?numLoops : Int, ?envelopeData : Array<Dynamic>) : Void {
 		Logger.log("AudioTrackLog", '$frame: StartSound id: $soundId\n');
 		var envelope = null;
 		if (envelopeData != null && envelopeData.length > 0) {
 			envelope = [];
 			var i = 0;
 			while (i < envelopeData.length) {
-				envelope.push( { position: envelopeData[i], leftLevel: envelopeData[i+1], rightLevel: envelopeData[i+2] } );
+				envelope.push( {
+					pos: envelopeData[i],
+					leftVolume: envelopeData[i + 1],
+					rightVolume: envelopeData[i+2]
+				} );
 				i += 3;
 			}
 		}
@@ -118,11 +127,12 @@ class AudioTracker
 			soundId:	event(soundId),
 			frame:		frame,
 			type:		event({
-				sync:		Type.createEnumIndex(SoundSync, sync),
+				stop:		sync == 2,
+				noMultiple:	sync == 1,
 				envelope:	envelope,
-				loops:		loops,
-				inPoint:	inPoint,
-				outPoint:	outPoint,
+				numLoops:	numLoops,
+				startPos:	startPos,
+				endPos:		endPos,
 			}),
 		} );
 	}
@@ -243,27 +253,30 @@ class AudioTracker
 				
 				switch(e.type) {
 					case event(info):
-						if(soundClip == null) continue;
-						var play = switch(info.sync) {
-							case SSEvent: // event sounds always play
-								true;
-
-							case SSStart: // start sounds may not play if the same sound is already playing
-								var found = false;
-								for (sound in _soundInstances) {
-									if (Type.enumEq(sound.id, e.soundId)) {
-										found = true;
-										break;
-									}
+						if (soundClip == null) continue;
+						
+						// Sync: "event"
+						var play = true;
+						
+						if ( info.stop ) {
+							// Sync: "stop"
+							// Stop any active instances of this sound.
+							for(sound in _soundInstances) {
+								if (Type.enumEq(sound.id, e.soundId))
+									_soundInstances.remove(sound);
+							}
+							play = false;
+						} else if ( info.noMultiple ) {
+							// Sync: "start"
+							// Only play if there are no instances of this sound already playing.
+							var found = false;
+							for (sound in _soundInstances) {
+								if (Type.enumEq(sound.id, e.soundId)) {
+									found = true;
+									break;
 								}
-								!found;
-
-							case SSStop:				// stop any currently playing instances of this sound
-								for(sound in _soundInstances) {
-									if (Type.enumEq(sound.id, e.soundId))
-										_soundInstances.remove(sound);
-								}
-								false;
+							}
+							play = !found;
 						}
 
 						if (play) {
@@ -297,7 +310,7 @@ class AudioTracker
 						var transform;
 						if(i==-1) {
 							transform = _globalTransform;
-							_as2Transforms = new IntHash();
+							_as2Transforms = new IntMap();
 						} else {
 							transform = _as2Transforms.get(i);
 							if(transform == null) {
@@ -314,7 +327,7 @@ class AudioTracker
 						var transform;
 						if(i==-1) {
 							transform = _globalTransform;
-							_as2Transforms = new IntHash();
+							_as2Transforms = new IntMap();
 						} else {
 							transform = _as2Transforms.get(i);
 							if(transform == null) {
@@ -340,7 +353,7 @@ class AudioTracker
 						var transform;
 						if(i==-1) {
 							transform = _globalTransform;
-							_as2Transforms = new IntHash();
+							_as2Transforms = new IntMap();
 						} else {
 							transform = _as2Transforms.get(i);
 							if(transform == null) {
@@ -402,7 +415,7 @@ class AudioTracker
 
 // TODO: this nomenclature is getting confusing...
 enum SoundLogType {
-	event(info : SoundInfo);
+	event(info : StartSoundInfo);
 	stream(frames : {startFrame : Int, endFrame : Int});
 	asStart(instance : Int, offsetSeconds : Null<Int>, loops : Int);
 	asSetVolume(instance : Int, volume : Float);
