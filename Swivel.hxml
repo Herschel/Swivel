@@ -1,5 +1,4 @@
 com.newgrounds.swivel.Swivel
---no-inline
 -cp src
 -cp huey/src
 -cp huey/test
