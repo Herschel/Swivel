@@ -1,0 +1,12 @@
+language: haxe
+
+haxe:
+  - "3.4.4"
+  - development
+
+matrix:
+  allow_failures:
+    - haxe: development
+
+hxml:
+  - Swivel.hxml
