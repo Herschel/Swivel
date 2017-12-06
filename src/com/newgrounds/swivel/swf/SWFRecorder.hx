@@ -241,6 +241,10 @@ class SWFRecorder {
 		_loader.contentLoaderInfo.removeEventListener(flash.events.Event.INIT, onSWFLoaded);
 		_loader.addEventListener(flash.events.Event.ENTER_FRAME, onSWFFrame);
 		_loader.addEventListener(flash.events.Event.RENDER, onSWFRender);
+		
+		// The first frame of the movie is already visible, and the events above won't fire
+		// until next frame, so manually trigger a render immediately (#2).
+		onSWFFrame(null);
 	}
 	
 	function onSWFFrame(_) _window.stage.invalidate();
