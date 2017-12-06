@@ -8,7 +8,7 @@ com.newgrounds.swivel.Swivel
 -main com.newgrounds.swivel.Swivel
 -swf bin/Swivel.swf
 -swf-header 930:590:30
--swf-version 11.4
+-swf-version 27
 -swf-lib assets/SwivelFonts.swf
 -D air
 --flash-strict
