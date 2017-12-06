@@ -153,9 +153,12 @@ class MacroTools
 					mapExpr(eif, f);
 					mapExpr(eelse, f);
 				
+				// Fix for dev build: in Haxe 4, EIn changed to OpIn.
+#if (haxe_ver < "4")
 				case EIn(e1, e2):
 					mapExpr(e1, f);
 					mapExpr(e2, f);
+#end
 				
 				case ENew(t, params):
 					for (e in params) mapExpr(e, f);
