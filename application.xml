@@ -25,5 +25,4 @@
 		<maximizable>false</maximizable>
 		<resizable>false</resizable>
 	</initialWindow>
-	<ffmpegPath>ffmpeg/win64</ffmpegPath>
 </application>
