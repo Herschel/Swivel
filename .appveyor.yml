@@ -4,11 +4,19 @@ environment:
   global:
     HAXELIB_ROOT: C:\projects\haxelib
 
+cache:
+  - c:\projects\air
+
+init:
+  - set AIR_SDK=c:\projects\air
+
 install:
   # Appveyor doesn't get submodules by default.
   - git submodule update --init --recursive
   # Install the haxe chocolatey package (https://chocolatey.org/packages/haxe)
   - cinst haxe --version 3.4.4 -y
+  # Install NSIS for installer generation.
+  - cinst nsis --version 3.02 -y
   - RefreshEnv
   # Setup haxelib
   - mkdir "%HAXELIB_ROOT%"
@@ -17,6 +25,11 @@ install:
   # `> log.txt || type log.txt` is for muting the output unless there is an error
   - haxelib install air3 > log.txt || type log.txt && cmd /C exit 1
   - haxelib list
+  # Download and unzip Adobe AIR SDK if not cached.
+  - if not exist %AIR_SDK% (
+    curl -fsS -O https://airdownload.adobe.com/air/win/download/latest/AIRSDK_Compiler.zip &&
+    mkdir %AIR_SDK% &&
+    7z x -o%AIR_SDK% AIRSDK_Compiler.zip)
 
 # We don't use the build section, but do both build and 
 # test in `test_script:`.
@@ -25,4 +38,13 @@ install:
 build: off
 
 test_script:
+  # Build Swivel.swf.
   - haxe Swivel.hxml
+  # Package AIR runtime.
+  - PackageApp.bat
+  # Build NSIS installer.
+  - set PATH="C:\Program Files (x86)\NSIS";%PATH%
+  - makensis win-installer.nsi
+
+artifacts:
+  - path: swivel-win32.exe
