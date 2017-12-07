@@ -8,5 +8,3 @@ set OPTIONS=
 call bat\Packager.bat
 
 echo. 2>bin\Swivel\META-INF\AIR\debug
-
-pause

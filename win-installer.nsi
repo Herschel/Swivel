@@ -12,10 +12,10 @@
 
   ;Name and file
   Name "Swivel"
-  OutFile "swivel-win64.exe"
+  OutFile "swivel-win32.exe"
 
   ;Default installation folder
-  InstallDir "$PROGRAMFILES64\Swivel"
+  InstallDir "$PROGRAMFILES\Swivel"
 
   ;Get installation folder from registry if available
   InstallDirRegKey HKCU "Software\Swivel" ""
