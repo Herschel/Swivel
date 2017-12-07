@@ -12,7 +12,7 @@
 
   ;Name and file
   Name "Swivel"
-  OutFile "..\swivel-win64.exe"
+  OutFile "swivel-win64.exe"
 
   ;Default installation folder
   InstallDir "$PROGRAMFILES64\Swivel"
@@ -22,6 +22,8 @@
 
   ;Request application privileges for Windows Vista
   RequestExecutionLevel admin
+
+  SetCompressor /SOLID /FINAL lzma
 
 ;--------------------------------
 ;Variables
@@ -36,14 +38,14 @@ FunctionEnd
 ;Interface Settings
 
   !define MUI_HEADERIMAGE
-  !define MUI_HEADERIMAGE_BITMAP "..\..\assets\WinInstallerHeader.bmp"
+  !define MUI_HEADERIMAGE_BITMAP "assets\WinInstallerHeader.bmp"
   !define MUI_ABORTWARNING
 
 ;--------------------------------
 ;Pages
 
   !insertmacro MUI_PAGE_WELCOME
-  !insertmacro MUI_PAGE_LICENSE "..\..\license.txt"
+  !insertmacro MUI_PAGE_LICENSE "LICENSE.md"
   !insertmacro MUI_PAGE_COMPONENTS
   !insertmacro MUI_PAGE_DIRECTORY
   !define MUI_STARTMENUPAGE_REGISTRY_ROOT "HKCU"
@@ -75,7 +77,7 @@ Section "Swivel" SecSwivel
 
   SetOutPath "$INSTDIR"
 
-  File /r /x *.nsi /x $EXEFILE *
+  File /r bin\Swivel\*
 
   ;Store installation folder
   WriteRegStr HKCU "Software\Swivel" "" $INSTDIR
