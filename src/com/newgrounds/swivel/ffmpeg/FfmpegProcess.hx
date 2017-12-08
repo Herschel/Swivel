@@ -147,9 +147,9 @@ class FfmpegEncoder extends FfmpegProcess
 	];
 	
 	public static var PRESETS : Array<VideoPreset> = [
-		{label: "H.264 High", fileFormat: "mp4", codec: "libx264", supportsBitRate: true, extraParameters: ["-preset","slow"], supportedAudioCodecs: [AUDIO_CODECS[0], AUDIO_CODECS[2]]},
-		{label: "H.264 Main", fileFormat: "mp4", codec: "libx264", supportsBitRate: true, extraParameters: ["-preset","slow","-profile:v","main"], supportedAudioCodecs: [AUDIO_CODECS[0], AUDIO_CODECS[2]]},
-		{label: "H.264 Baseline", fileFormat: "mp4", codec: "libx264", supportsBitRate: true, extraParameters: ["-preset","slow","-profile:v","baseline"], supportedAudioCodecs: [AUDIO_CODECS[0], AUDIO_CODECS[2]]},
+		{label: "H.264 High", fileFormat: "mp4", codec: "libx264", supportsBitRate: true, extraParameters: ["-preset","slow","-pix_fmt","yuv420p"], supportedAudioCodecs: [AUDIO_CODECS[0], AUDIO_CODECS[2]]},
+		{label: "H.264 Main", fileFormat: "mp4", codec: "libx264", supportsBitRate: true, extraParameters: ["-preset","slow","-profile:v","main","-pix_fmt","yuv420p"], supportedAudioCodecs: [AUDIO_CODECS[0], AUDIO_CODECS[2]]},
+		{label: "H.264 Baseline", fileFormat: "mp4", codec: "libx264", supportsBitRate: true, extraParameters: ["-preset","slow","-profile:v","baseline","-pix_fmt","yuv420p"], supportedAudioCodecs: [AUDIO_CODECS[0], AUDIO_CODECS[2]]},
 		{label: "MPEG-2 Video", fileFormat: "mpg", codec: "mpeg2video", supportsBitRate: true, extraParameters: ["-preset","slow"], supportedAudioCodecs: [AUDIO_CODECS[0], AUDIO_CODECS[2]]},
 		{label: "Theora", fileFormat: "ogg", codec: "theora", supportsBitRate: true, extraParameters: ["-preset","slow"], supportedAudioCodecs: [AUDIO_CODECS[3]]},
 		{label: "QuickTime Animation", fileFormat: "mov", codec: "qtrle", supportsBitRate: false, extraParameters: null,supportedAudioCodecs: [AUDIO_CODECS[0], AUDIO_CODECS[1], AUDIO_CODECS[2]]},
