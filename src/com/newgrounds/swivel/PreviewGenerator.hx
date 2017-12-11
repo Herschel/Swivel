@@ -26,11 +26,6 @@ import format.abc.Context;
 
 using com.newgrounds.swivel.swf.AbcUtils;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 class PreviewGenerator {
 
 	public var onPreviewReady(default, null) : Dispatcher<flash.display.BitmapData>;

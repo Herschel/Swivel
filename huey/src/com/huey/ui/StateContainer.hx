@@ -20,11 +20,6 @@
 package com.huey.ui;
 import haxe.ds.StringMap;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 class StateContainer extends Container {
 	public var state(default, set) : String;
 	private function set_state(v : String) : String {

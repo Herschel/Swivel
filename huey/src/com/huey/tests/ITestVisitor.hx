@@ -19,11 +19,6 @@
 
 package com.huey.tests;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 interface ITestVisitor
 {
 	function preVisitTestSuite(suite : TestSuite) : Void;

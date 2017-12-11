@@ -19,11 +19,6 @@
 
 package com.newgrounds.swivel.audio;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 class ActionScriptSoundInstance extends SoundInstance {
 	public function new(sound : SoundClip, instance : Int, inPoint : Int, loops : Int) : Void {
 		super(sound, inPoint, null, loops);

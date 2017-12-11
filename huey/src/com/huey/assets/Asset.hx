@@ -27,11 +27,6 @@ import flash.events.Event;
 import flash.events.IOErrorEvent;
 import flash.net.URLRequest;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 class Asset
 {
 	public var name(default, null) : String;

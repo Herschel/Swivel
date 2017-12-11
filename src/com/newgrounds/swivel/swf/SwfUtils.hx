@@ -27,11 +27,6 @@ import haxe.io.BytesOutput;
 import haxe.Resource;
 import haxe.macro.Expr;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 class SwfUtils
 {
 	macro public static function getAs2Tag(resourceName, ?params) {

@@ -19,11 +19,6 @@
 
 package com.huey.ui;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 class Container extends Component
 {
 	public var numChildren(get, never) : Int;

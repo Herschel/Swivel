@@ -35,11 +35,6 @@ import flash.geom.Rectangle;
 import flash.system.LoaderContext;
 import flash.system.System;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 class SWFRecorder {
 	private static inline var DEFAULT_WIDTH : Int	= 1920;
 	private static inline var DEFAULT_HEIGHT : Int	= 1080;

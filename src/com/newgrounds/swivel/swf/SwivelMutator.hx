@@ -26,11 +26,6 @@ import haxe.Int32;
 
 using com.newgrounds.swivel.swf.AbcUtils;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 class SwivelMutator implements ISWFMutator
 {
 	

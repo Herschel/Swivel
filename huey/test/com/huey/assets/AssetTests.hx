@@ -20,11 +20,6 @@
 package com.huey.assets;
 import com.huey.tests.TestSuite;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 class AssetTests extends TestSuite
 {
 	@test public function testAsset() : Void {

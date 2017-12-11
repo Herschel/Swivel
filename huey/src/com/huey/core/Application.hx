@@ -23,10 +23,6 @@ import com.huey.ui.*;
 import com.huey.utils.Assert;
 import com.huey.binding.Binding;
 import com.huey.utils.Thread;
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
 
 @:autoBuild(com.huey.core.ApplicationMacros.buildApplication())
 class Application extends Binding.Bindable

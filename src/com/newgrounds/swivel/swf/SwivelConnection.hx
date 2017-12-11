@@ -24,12 +24,7 @@ import flash.net.LocalConnection;
 import flash.net.SharedObject;
 import haxe.Int32;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
- interface ISwivelConnection {
+interface ISwivelConnection {
 	public var client(get, set) : Dynamic;
 	public function tick() : Void;
 	public function close() : Void;

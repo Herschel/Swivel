@@ -30,11 +30,6 @@ import flash.filesystem.File;
 import flash.Lib;
 import flash.utils.ByteArray;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 class FfmpegProcess
 {
 	public var onComplete(default, null) : Dispatcher<Dynamic>;

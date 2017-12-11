@@ -20,11 +20,6 @@
 package com.huey.ui;
 import com.huey.events.Dispatcher;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 class TextBox extends Container {
 	@forward(_text) public var text : String;
 	@forward(_text) public var font : String;

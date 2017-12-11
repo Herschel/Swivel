@@ -24,11 +24,6 @@ import haxe.macro.Type;
 
 using com.huey.macros.MacroTools;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 class Macros
 {
 	@:macro public static function build() : Array<Field> {

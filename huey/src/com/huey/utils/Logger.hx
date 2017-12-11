@@ -24,11 +24,6 @@ import flash.filesystem.FileStream;
 import haxe.ds.StringMap;
 import haxe.macro.Expr;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 class Logger {
 	inline public static function log(name : String, msg : String) {
 		Logger.getInstance(name).logMessage(msg);

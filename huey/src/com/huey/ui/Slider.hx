@@ -19,11 +19,6 @@
 
 package com.huey.ui;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 class Slider extends Container {
 	@bindable public var value(default, set) : Float;
 	private function set_value(v : Float) : Float {

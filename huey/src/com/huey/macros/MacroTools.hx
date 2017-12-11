@@ -21,11 +21,6 @@ package com.huey.macros;
 import haxe.macro.Context;
 import haxe.macro.Expr;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 class MacroTools
 {
 	public static function extractString(expr : Expr) : String {

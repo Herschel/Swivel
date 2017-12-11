@@ -19,15 +19,13 @@
 
 package com.newgrounds.swivel.swf;
 
-/**
- * FilterMutator scales all filters to match the video size
- * @author Newgrounds.com, Inc.
- */
-
 import format.swf.Data;
 import haxe.ds.IntMap;
 using com.newgrounds.swivel.swf.AbcUtils;
 
+/**
+ * Scales all filters to match the output video size.
+ */
 class ScaleFilterMutator implements ISWFMutator
 {
 	public function new(scale : Float) {

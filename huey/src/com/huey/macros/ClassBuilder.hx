@@ -23,11 +23,6 @@ import haxe.macro.Context;
 import haxe.macro.Expr;
 import haxe.macro.Type;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 class ClassBuilder
 {
 	public static function createFromContext() : ClassBuilder {

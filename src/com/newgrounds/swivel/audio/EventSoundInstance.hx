@@ -22,11 +22,6 @@ import format.swf.Data.SoundEnvelopePoint;
 import format.swf.Data.StartSoundInfo;
 import haxe.Int32;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 class EventSoundInstance extends SoundInstance {
 	private static inline var MAX_VOLUME : Int = 32768;
 		

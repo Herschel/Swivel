@@ -27,11 +27,6 @@ import flash.utils.ByteArray;
 import haxe.io.Bytes;
 import haxe.io.BytesOutput;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 class Decoder
 {
 	public var onComplete(default, null) : Dispatcher<Dynamic>;

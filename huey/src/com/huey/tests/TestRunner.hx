@@ -20,12 +20,6 @@
 package com.huey.tests;
 import haxe.Stack;
 
-
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 class TestRunner implements ITestVisitor
 {
 	public var numTestsRun(default, null)		: Int;

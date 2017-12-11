@@ -23,11 +23,6 @@ import com.newgrounds.swivel.swf.SwivelSwf;
 import com.newgrounds.swivel.swf.RenderQuality;
 import flash.filesystem.File;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 class SwivelJob extends Binding.Bindable
 {
 	@bindable public var swf : SwivelSwf;

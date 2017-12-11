@@ -19,11 +19,6 @@
 
 package com.huey.utils;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 #if flash9
 
 class WeakRef<T>

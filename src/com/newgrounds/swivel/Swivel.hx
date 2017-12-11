@@ -56,11 +56,6 @@ import haxe.io.Bytes;
 import haxe.io.BytesInput;
 import haxe.io.Input;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 @:xml("SwivelHuey.xml") @:version("1.11")
 class Swivel extends Application
 {

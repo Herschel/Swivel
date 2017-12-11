@@ -23,11 +23,6 @@ import com.huey.ui.Component;
 import com.huey.ui.UIContainer;
 import com.huey.ui.UIFactory;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 class UITests extends TestSuite
 {
 	private var _factory : UIFactory;

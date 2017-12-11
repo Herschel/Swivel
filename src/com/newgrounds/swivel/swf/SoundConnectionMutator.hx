@@ -17,12 +17,6 @@
  * along with Swivel.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- * Tracks sound events over LocalConnection
- */
-
 package com.newgrounds.swivel.swf;
 import com.newgrounds.swivel.audio.AudioTracker;
 import format.as1.Data;
@@ -32,6 +26,9 @@ import haxe.ds.IntMap;
 import haxe.io.Bytes;
 import haxe.io.BytesOutput;
 
+/**
+ * Tracks sounds playing in an SWF using LocalConnection.
+ */
 class SoundConnectionMutator implements ISWFMutator
 {
 	public var connectionName : String;

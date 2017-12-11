@@ -25,11 +25,6 @@ import haxe.macro.Expr;
 
 using com.huey.macros.MacroTools;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 class ApplicationMacros
 {
 

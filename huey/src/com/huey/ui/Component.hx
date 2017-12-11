@@ -21,11 +21,6 @@ package com.huey.ui;
 import com.huey.events.Dispatcher;
 import com.huey.binding.Binding;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 @:autoBuild(com.huey.macros.Macros.build())
 interface UIBase {
 	

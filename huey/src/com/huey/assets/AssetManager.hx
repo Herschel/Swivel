@@ -21,11 +21,6 @@ package com.huey.assets;
 import com.huey.events.Dispatcher;
 import haxe.ds.StringMap;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 class AssetManager
 {
 	private static var _instance : AssetManager;

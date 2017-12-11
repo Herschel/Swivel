@@ -21,11 +21,6 @@ package com.huey.ui;
 import com.huey.events.Dispatcher;
 import flash.text.TextFormat;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 class Label extends Component {
 	public var text(default, set_text) : String;
 	private function set_text(v : String) : String {

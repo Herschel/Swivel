@@ -30,11 +30,6 @@ import haxe.io.BytesOutput;
 
 using com.newgrounds.swivel.swf.AbcUtils;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 typedef ABCStuff = {abc : ABCData, cl : ClassDef, tagIndex : Int, extra : AS3Context};
 
 class SwivelSwf {

@@ -19,11 +19,6 @@
 
 package com.huey.utils;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 class Assert
 {
 	inline public static function assertNull<T>(v : T, ?message : String) : Void {

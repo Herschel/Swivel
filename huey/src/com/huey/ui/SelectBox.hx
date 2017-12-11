@@ -23,11 +23,6 @@ import com.huey.events.Dispatcher;
 import com.huey.events.Dispatcher;
 import com.huey.ui.Image;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 class SelectBox extends Container {
 	@forward(_listBox) public var items : Array<Dynamic>;
 	@forward(_listBox) public var selectedItem : Dynamic;

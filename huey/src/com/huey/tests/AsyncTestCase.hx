@@ -21,11 +21,6 @@ package com.huey.tests;
 import com.huey.events.Dispatcher;
 import haxe.Stack;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 class AsyncTestCase implements ITest
 {
 	public var onTestComplete(default, null) : Dispatcher<TestStatus>;
