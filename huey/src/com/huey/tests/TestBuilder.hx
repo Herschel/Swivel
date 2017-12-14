@@ -22,11 +22,6 @@ import com.huey.macros.MacroTools;
 import haxe.macro.Context;
 import haxe.macro.Expr;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 @:macro class TestBuilder {
 	public static function buildTestSuite() : Array<Field> {
 		var cl = Context.getLocalClass().get();

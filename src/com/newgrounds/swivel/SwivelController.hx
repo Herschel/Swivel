@@ -36,11 +36,6 @@ import haxe.io.Bytes;
 import haxe.io.BytesInput;
 import com.newgrounds.swivel.swf.SwivelConnection.ISwivelConnection;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 @:autoBuild(com.huey.macros.Macros.build())
 interface ControllerBase { }
 

@@ -33,11 +33,6 @@ import haxe.io.Eof;
 import format.swf.Data;
 import com.newgrounds.swivel.audio.SoundClip.SoundClipId;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 class AudioTracker
 {
 	public var onSoundsDecoded : Dispatcher<Dynamic>;

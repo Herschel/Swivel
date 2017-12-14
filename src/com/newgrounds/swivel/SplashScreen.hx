@@ -24,11 +24,6 @@ import flash.events.MouseEvent;
 import flash.Lib;
 import flash.net.URLRequest;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 class SplashScreen extends Component {
 	public function new() {
 		_anim = new SplashAnim();

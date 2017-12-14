@@ -21,7 +21,6 @@ package com.huey.binding;
 import com.huey.tests.TestSuite;
 import com.huey.binding.Binding;
 
-
 /**
  * Tests the data binding framework.
  * @author Newgrounds.com, Inc.

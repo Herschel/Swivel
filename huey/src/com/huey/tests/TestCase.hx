@@ -20,11 +20,6 @@
 package com.huey.tests;
 import haxe.Stack;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 class TestCase implements ITest
 {
 	public var name(default, null) : String;

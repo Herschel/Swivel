@@ -21,11 +21,6 @@ package com.huey.core;
 import com.huey.tests.TestSuite;
 import com.huey.core.Application;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 class ApplicationTests extends TestSuite
 {
 	@test private function testApplication() : Void {

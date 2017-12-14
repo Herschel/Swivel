@@ -19,11 +19,6 @@
 
 package com.huey.ui;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 class ProgressBar extends Slider {
 	public function new()  {
 		super();

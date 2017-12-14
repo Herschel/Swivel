@@ -22,11 +22,6 @@ import haxe.macro.Context;
 import haxe.macro.Expr;
 import haxe.macro.Type;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 @:macro class UIMacros
 {
 

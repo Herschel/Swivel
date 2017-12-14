@@ -39,11 +39,6 @@ import flash.display.StageAlign;
 import flash.display.StageScaleMode;
 import flash.Lib;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 class Main
 {
 	

@@ -19,11 +19,6 @@
 
 package com.huey.ui;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 class Rectangle extends Component {
 	public function new(color : Int, width : Float, height : Float) {
 		var shape = new flash.display.Shape();

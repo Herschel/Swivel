@@ -19,11 +19,6 @@
 
 package com.huey.ui;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 class CheckBox extends Button
 {
 	@bindable public var selected(default, set) : Bool;

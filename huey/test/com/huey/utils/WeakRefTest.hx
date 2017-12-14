@@ -21,11 +21,6 @@ package com.huey.utils;
 import com.huey.tests.TestSuite;
 import com.huey.utils.WeakRef;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 class WeakRefTest extends TestSuite
 {
 	@test public function testWeakRef() {

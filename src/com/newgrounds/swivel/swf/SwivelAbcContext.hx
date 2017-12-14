@@ -20,10 +20,6 @@
 package com.newgrounds.swivel.swf;
 import format.abc.Context;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
 /*
 class SwivelAbcContext extends Context {
 	public static function fromData(d : ABCData) {

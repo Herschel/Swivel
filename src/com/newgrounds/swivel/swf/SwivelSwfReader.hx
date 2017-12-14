@@ -23,11 +23,6 @@ import format.swf.Data;
 import format.swf.Reader;
 import haxe.io.BytesInput;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 class SwivelSwfReader extends format.swf.Reader {
 
 	public function new(i : BytesInput) {

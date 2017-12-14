@@ -19,11 +19,6 @@
 
 package com.newgrounds.swivel.swf;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 typedef Watermark = {
 	var image : flash.display.BitmapData;
 	var align : WatermarkAlign;

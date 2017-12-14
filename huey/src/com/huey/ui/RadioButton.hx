@@ -19,11 +19,6 @@
 
 package com.huey.ui;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 class RadioButton extends CheckBox {
 	public var group : RadioGroup;
 	

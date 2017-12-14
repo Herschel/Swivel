@@ -19,11 +19,6 @@
 
 package com.huey.ui;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 class ScaledImage extends Container {
 	public var scaleMode(default, set_scaleMode) : ScaleMode;
 	private function set_scaleMode(v) {

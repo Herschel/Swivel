@@ -19,11 +19,6 @@
 
 package com.newgrounds.swivel.ffmpeg;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 typedef VideoPreset = {
 	var label : String;
 	var fileFormat : String;

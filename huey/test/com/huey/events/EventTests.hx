@@ -23,7 +23,6 @@ import com.huey.events.Dispatcher;
 
 /**
  * Tests the event handling system.
- * @author Newgrounds.com, Inc.
  */
 class EventTests extends TestSuite {
 	

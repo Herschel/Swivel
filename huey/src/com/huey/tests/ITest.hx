@@ -19,11 +19,6 @@
 
 package com.huey.tests;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 interface ITest
 {
 	var name(default, null)	: String;

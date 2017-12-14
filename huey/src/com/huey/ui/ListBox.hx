@@ -20,11 +20,6 @@
 package com.huey.ui;
 import com.huey.events.Dispatcher;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 class ListBox extends Container {
 	@bindable public var selectedItem(get_selectedItem, set_selectedItem) : Dynamic;
 	private function get_selectedItem() : Dynamic {

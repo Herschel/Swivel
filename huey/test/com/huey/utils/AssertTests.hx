@@ -20,11 +20,6 @@
 package com.huey.utils;
 import com.huey.tests.TestSuite;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 class AssertTests extends TestSuite
 {
 	#if debug

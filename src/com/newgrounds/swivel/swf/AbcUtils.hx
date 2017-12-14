@@ -27,11 +27,6 @@ import format.swf.Data;
 import haxe.io.BytesInput;
 import haxe.io.BytesOutput;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 class AbcUtils {
 	private static function lookup<T>( arr : Array<T>, n : T ) : Index<T> {
 		for( i in 0...arr.length )

@@ -19,11 +19,6 @@
 
 package com.newgrounds.swivel.swf;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 import format.swf.Data;
 
 class BitmapSmoothingMutator implements ISWFMutator

@@ -18,10 +18,6 @@
  */
 
 package com.huey.ui;
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
 
 class Button extends StateContainer
 {

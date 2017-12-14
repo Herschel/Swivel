@@ -19,11 +19,6 @@
 
 package com.huey.tests;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 class AsyncTestVisitor implements ITestVisitor
 {
 	private var _visitor : ITestVisitor;

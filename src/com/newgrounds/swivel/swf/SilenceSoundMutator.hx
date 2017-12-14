@@ -20,11 +20,6 @@
 package com.newgrounds.swivel.swf;
 import format.swf.Data;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 class SilenceSoundMutator implements ISWFMutator
 {
 

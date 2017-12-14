@@ -21,11 +21,6 @@ package com.huey.macros;
 import haxe.macro.Expr;
 import haxe.macro.Context;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 class FieldInfo
 {
 	public static function fromField(field : Field) : FieldInfo {

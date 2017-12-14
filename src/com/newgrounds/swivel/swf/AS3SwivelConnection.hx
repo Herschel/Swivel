@@ -20,11 +20,6 @@
 package com.newgrounds.swivel.swf;
 import com.newgrounds.swivel.swf.SwivelConnection.ISwivelConnection;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 class AS3SwivelConnection implements ISwivelConnection
 {
 	private static var _instance : AS3SwivelConnection;

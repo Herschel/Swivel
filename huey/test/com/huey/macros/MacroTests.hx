@@ -21,11 +21,6 @@ package com.huey.macros;
 import com.huey.tests.TestSuite;
 import haxe.macro.Expr;
 
-/**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
 class MacroTests extends TestSuite
 {
 	private var _builder : ClassBuilder;

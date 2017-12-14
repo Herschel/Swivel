@@ -24,11 +24,6 @@ import haxe.macro.Expr;
 import haxe.Stack;
 
 /**
- * ...
- * @author Newgrounds.com, Inc.
- */
-
-/**
  * TestSuite groups test cases together.
  */
 @:autoBuild(com.huey.tests.TestBuilder.buildTestSuite())

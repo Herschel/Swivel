@@ -19,9 +19,8 @@
 
 package com.huey.events;
 
- /**
+/**
  * The Dispatcher class allows observers to listen for events.
- * @author Newgrounds.com, Inc.
  */
 class Dispatcher<T>
 {
