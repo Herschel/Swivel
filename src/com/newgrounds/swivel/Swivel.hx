@@ -206,9 +206,6 @@ class Swivel extends Application
 		if(arg.charAt(0) == "-") {
 			var sw = arg.substr(1);
 			switch(sw) {
-				// Additional desired switches:
-				//  - PNG output
-				//  - keyframes-every (-g 1)
 				case "s":
 					var parts = args.shift().split("x");
 					_controller.outputWidth = Std.parseInt(parts[0]);
@@ -257,10 +254,10 @@ class Swivel extends Application
 					_controller.transparentBackground = true;
 				
 				case "png":
-					_controller.pngOutput = true;
+					_controller.pngFile = _cmdLineDirectory.resolvePath( StringTools.trim(args.shift()) );
 					
 				case "k":
-					_controller.keyframeEvery = Std.parseInt(arg);
+					_controller.keyframeEvery = Std.parseInt(args.shift());
 					
 				case "o":
 					_controller.outputFile = _cmdLineDirectory.resolvePath( StringTools.trim(args.shift()) );

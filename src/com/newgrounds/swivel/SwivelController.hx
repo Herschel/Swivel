@@ -59,7 +59,6 @@ class SwivelController extends com.huey.binding.Binding.Bindable implements Cont
 	@forward(_recorder) public var watermark : Null<Watermark>;
 
 	private var _videoFile : File;
-	private var _pngPath : File;
 	private var _audioFile : File;
 	private var _audioOutput : FileStream;
 	@bindable public var outputFile : File;
@@ -68,7 +67,7 @@ class SwivelController extends com.huey.binding.Binding.Bindable implements Cont
 	@bindable public var audioCodec : AudioCodec;
 	public var audioBitRate : Null<Int>;
 	
-	public var pngOutput : Bool = false;
+	public var pngFile : Null<File>;
 	public var keyframeEvery : Null<Int>;
 	
 	private var _parsedSwf : SwivelSwf;
@@ -137,10 +136,7 @@ class SwivelController extends com.huey.binding.Binding.Bindable implements Cont
 		} else {
 			outputFile;
 		}
-		
-		// FIXME: Strip previous extension.  Use this if pngOutput set.
-		_pngPath = outputFile + "_%04d.png";
-		
+				
 		_taskList = new List();
 		_taskList.add( StartEncoder(_videoFile, if(!usesSwfAudio) _audioFile else null) );
 		for(job in jobs) {
@@ -190,7 +186,7 @@ class SwivelController extends com.huey.binding.Binding.Bindable implements Cont
 		_currentJob = null;
 		switch(task) {
 			case StartEncoder(outputFile, inputAudioFile):
-				var ffmpeg = new FfmpegEncoder(videoPreset, videoBitRate, outputFile, _recorder.outputWidth, _recorder.outputHeight, jobs.array[0].swf.frameRate, if(inputAudioFile != null) inputAudioFile.nativePath else null, audioCodec, audioBitRate, if(stereoAudio) 2 else 1);
+				var ffmpeg = new FfmpegEncoder(videoPreset, videoBitRate, outputFile, _recorder.outputWidth, _recorder.outputHeight, jobs.array[0].swf.frameRate, if(inputAudioFile != null) inputAudioFile.nativePath else null, audioCodec, audioBitRate, if(stereoAudio) 2 else 1, pngFile, keyframeEvery);
 				ffmpeg.onComplete.add(onEncodingComplete);
 				_ffmpeg = ffmpeg;
 				runNextTask();
