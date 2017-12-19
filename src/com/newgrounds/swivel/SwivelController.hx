@@ -59,6 +59,7 @@ class SwivelController extends com.huey.binding.Binding.Bindable implements Cont
 	@forward(_recorder) public var watermark : Null<Watermark>;
 
 	private var _videoFile : File;
+	private var _pngPath : File;
 	private var _audioFile : File;
 	private var _audioOutput : FileStream;
 	@bindable public var outputFile : File;
@@ -66,6 +67,9 @@ class SwivelController extends com.huey.binding.Binding.Bindable implements Cont
 	public var videoBitRate : Null<Int>;
 	@bindable public var audioCodec : AudioCodec;
 	public var audioBitRate : Null<Int>;
+	
+	public var pngOutput : Bool = false;
+	public var keyframeEvery : Null<Int>;
 	
 	private var _parsedSwf : SwivelSwf;
 		
@@ -133,7 +137,10 @@ class SwivelController extends com.huey.binding.Binding.Bindable implements Cont
 		} else {
 			outputFile;
 		}
-				
+		
+		// FIXME: Strip previous extension.  Use this if pngOutput set.
+		_pngPath = outputFile + "_%04d.png";
+		
 		_taskList = new List();
 		_taskList.add( StartEncoder(_videoFile, if(!usesSwfAudio) _audioFile else null) );
 		for(job in jobs) {
