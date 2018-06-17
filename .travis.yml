@@ -1,4 +1,35 @@
 language: haxe
+os: osx
+
+env:
+  - AIR_SDK=air_sdk HAXELIB_ROOT=haxelib
+
+cache:
+  directiories:
+  - air_sdk
+  - haxelib
+
+install:
+  # Setup haxelib and install libraries.
+  - mkdir $HAXELIB_ROOT
+  - haxelib setup $HAXELIB_ROOT
+  - yes | haxelib install Swivel.hxml
+
+  # Download and unzip the Adobe AIR SDK if not cached.
+  - test -f $AIR_SDK || (
+    curl -fsS -O https://airdownload.adobe.com/air/mac/download/latest/AIRSDK_Compiler.dmg &&
+    mkdir $AIR_SDK &&
+    hdiutil attach -noverify -mountpoint /Volumes/air AIRSDK_Compiler.dmg &&
+    cp -R /Volumes/air/* $AIR_SDK &&
+    hdiutil detach /Volumes/air)
+  - export PATH=$PATH:$AIR_SDK/bin
+
+  # Install appdmg node package.
+  - npm install -g appdmg@0.5.2
+
+script:
+  # Run make to build package.
+  - make all
 
 haxe:
   - "3.4.4"
@@ -8,5 +39,11 @@ matrix:
   allow_failures:
     - haxe: development
 
-hxml:
-  - Swivel.hxml
+deploy:
+  provider: releases
+  api_key:
+    - secure: "i0Fm7EmabkefgOfe/G6tUKwtnWonGugKMsyZognTlBJbqGkrsJMt34fSlqk7HnoG7B3P6FXbJDwGwunQWQx/AUDB2jyTec4Oawd6WJ8LhWs9KAPW5GiDWXJvJTLGdvCS1aFj62cs80XH6ipmCUpIx1nxvN+Vh24zxltjQyHShiAvjYOaxiQ5vfFYKaSTJB6MwfC/p4B5JXgcn9eioe2FZj4xR726Ug3YR7zQm7jc/f9NZL5c6Q34iAyBbKzNe6lMiypMaPtZQekQ/NrVqaVtTNeJnnbLRET09DLnSVPFiqKuBi2RiBYy2vJRXucaCCjlHx6FzgdR+m0l+9ExkQvmcaZn2SxamSfru6Kqd5jrbYZpMB1JlkI6xTnEih5PPuTZom5eOfsu4TsWTw4s7fXJccIYSZ3Lstym5XDpFAe2KmLf08RiLbqQ0QDQZPBvxGTJ9R0yORH6V8yft1N1OhZIFRvw+P24aJyh8+zJBQvqAKEZo4t/eJ5ftNp026lwNsBg1xKy+X39aOCQ+vTNnd8enJES/5yLmNN4howIfuD7eZdrpVKx/aXWapoceArRFJMO7KnSdw5/LmRF/UAzzgAWcInCOIQL9EK3gVd0pH5Nj3wLZgYu/tX9qFLNlgatCStoPX9axSbB6Znp6JDgGG3EqZcc1VGCozMWCEoTWw5jdUk="
+  file: "bin/Swivel.dmg"
+  skip_cleanup: true
+  on:
+    tags: true

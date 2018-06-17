@@ -1,0 +1,10 @@
+{
+  "title": "Swivel",
+  "icon": "bin/Swivel.app/Contents/Resources/Icon.icns",
+  "background": "assets/bgMAC.jpg",
+  "icon-size": 128,
+  "contents": [
+    { "x": 200, "y": 210, "type": "file", "path": "bin/Swivel.app" },
+    { "x": 500, "y": 210, "type": "link", "path": "/Applications" }
+  ]
+}
