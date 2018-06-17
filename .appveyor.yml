@@ -11,10 +11,14 @@ init:
   - set AIR_SDK=c:\projects\air
 
 install:
+  # Chocolatey was failing trying to install some Windows updates..!?
+  # This fixes it somehow.
+  - ps: Set-Service wuauserv -StartupType Manual
+  - cinst -y php
   # Appveyor doesn't get submodules by default.
   - git submodule update --init --recursive
   # Install the haxe chocolatey package (https://chocolatey.org/packages/haxe)
-  - cinst haxe --version 3.4.4 -y
+  - cinst haxe --version 3.4.7 -y
   # Install NSIS for installer generation.
   - cinst nsis --version 3.02 -y
   - RefreshEnv
