@@ -252,10 +252,16 @@ class Swivel extends Application
 					
 				case "t":
 					_controller.transparentBackground = true;
+				
+				case "png":
+					_controller.pngFile = _cmdLineDirectory.resolvePath( StringTools.trim(args.shift()) );
+					
+				case "k":
+					_controller.keyframeEvery = Std.parseInt(args.shift());
 					
 				case "o":
 					_controller.outputFile = _cmdLineDirectory.resolvePath( StringTools.trim(args.shift()) );
-					
+				
 				default: throw('Invalid switch $sw');
 			}
 		} else {

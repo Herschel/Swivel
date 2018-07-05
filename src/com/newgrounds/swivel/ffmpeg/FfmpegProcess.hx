@@ -169,7 +169,7 @@ class FfmpegEncoder extends FfmpegProcess
 	
 	public var onFrameReceived(default, null) : Dispatcher<Dynamic>;
 	
-	public function new(preset : VideoPreset, videoBitRate : Null<Int>, outputFile : File, width : UInt, height : UInt, frameRate : Float, ?audioFile : String, ?audioCodec : AudioCodec, ?audioBitRate : Null<Int>, ?numChannels : Int) {
+	public function new(preset : VideoPreset, videoBitRate : Null<Int>, outputFile : File, width : UInt, height : UInt, frameRate : Float, ?audioFile : String, ?audioCodec : AudioCodec, ?audioBitRate : Null<Int>, ?numChannels : Int, ?pngFile : File, ?keyframeEvery : Null<Int>) {
 		_framesSent = _framesReceived = _framesEncoded = 0;
 		_frameQueue = new Array();
 			
@@ -219,6 +219,11 @@ class FfmpegEncoder extends FfmpegProcess
 			for(p in preset.extraParameters) params.push(p);
 		}
 		
+		if (keyframeEvery != null) {
+			params.push("-g");
+			params.push(Std.string(keyframeEvery));
+		}
+		
 		params.push("-aspect");
 		params.push(width + ":" + height);
 
@@ -226,6 +231,15 @@ class FfmpegEncoder extends FfmpegProcess
 		params.push("-2");
 		
 		params.push(outputFile.nativePath);
+
+		if (pngFile != null) {
+			params.push("-an");
+			params.push("-c:v");
+			params.push("png");
+			params.push(pngFile.nativePath);
+		}
+		
+
 		
 		super( params );
 	}
